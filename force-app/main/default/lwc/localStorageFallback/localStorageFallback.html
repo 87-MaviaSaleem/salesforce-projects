@@ -1,0 +1,11 @@
+<template>
+    <!-- Existing UI elements -->
+    <!-- Pagination controls -->
+    <div class="pagination-controls">
+        <lightning-button label="Previous" onclick={handlePreviousPage}></lightning-button>
+        <span>Page {currentPage}</span>
+        <lightning-button label="Next" onclick={handleNextPage}></lightning-button>
+    </div>
+    <!-- User data management controls -->
+    <lightning-button label="Clear Offline Data" onclick={handleClearOfflineData}></lightning-button>
+</template>

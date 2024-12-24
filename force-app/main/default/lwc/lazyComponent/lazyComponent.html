@@ -1,0 +1,28 @@
+<template>
+  <div class="component-wrapper">
+      <!-- Component Header -->
+      <div class="header">Lazy Component Header</div>
+
+      <!-- Lazy Load Div -->
+      <div class="lazy-load" lwc:dom="manual"></div>
+
+      <!-- Interactive Elements -->
+      <div class="interactive-elements">
+          <!-- Button to Update Message -->
+          <button class="update-button" onclick={handleButtonClick}>Update Message</button>
+
+          <!-- Input Field to Enter New Message -->
+          <input type="text" placeholder="Enter new message" onchange={handleInputChange} class="input-field"/>
+
+          <!-- Checkbox to Toggle Visibility -->
+          <label>
+              <input type="checkbox" checked={showComponent} onclick={handleToggleVisibility}/> Show Component
+          </label>
+      </div>
+
+      <!-- Footer Message -->
+      <div class="footer-message">
+          <p>Footer: This is additional information or instructions.</p>
+      </div>
+  </div>
+</template>

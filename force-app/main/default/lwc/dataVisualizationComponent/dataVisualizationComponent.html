@@ -1,0 +1,10 @@
+<template>
+    <lightning-combobox label="Select Data Type" value={selectedType} options={dataTypeOptions} onchange={handleTypeChange}></lightning-combobox>
+    <template if:true={visualizationData}>
+        <lightning-card title="Visualization Data">
+            <template for:each={visualizationData} for:item="data">
+                <p key={data.Id}>{data.Visualization_Type__c}: {data.Data_Value__c}</p>
+            </template>
+        </lightning-card>
+    </template>
+</template>

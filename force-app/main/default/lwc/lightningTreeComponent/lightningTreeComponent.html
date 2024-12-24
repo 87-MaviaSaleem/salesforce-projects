@@ -1,0 +1,31 @@
+<template>
+    <lightning-card variant="Narrow" title="Lightning Tree Grid" icon-name="standard:account">
+        <div class="slds-m-top_medium slds-m-bottom_x-large">
+            <!-- Search Input -->
+            <div class="slds-p-horizontal_large">
+                <lightning-input
+                    type="search"
+                    label="Search"
+                    placeholder="Search by Name"
+                    onchange={handleSearch}>
+                </lightning-input>
+            </div>
+            <br />
+
+            <!-- Tree Grid -->
+            <lightning-tree-grid
+                key-field="id"
+                data={filteredGridData}
+                columns={gridColumns}
+                hide-checkbox-column="true"
+                is-loading={isLoading}
+                ontoggle={handleOnToggle}
+            ></lightning-tree-grid>
+
+            <!-- Error Message -->
+            <template if:true={error}>
+                <p class="slds-text-color_error">Error while fetching the records. Try Again..</p>
+            </template>
+        </div>
+    </lightning-card>
+</template>

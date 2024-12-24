@@ -1,0 +1,12 @@
+<template>
+    <lightning-combobox
+        label="Select Article"
+        options={articleOptions}
+        value={selectedArticle}
+        onchange={handleArticleChange}>
+    </lightning-combobox>
+
+    <template if:true={selectedArticleContent}>
+      <!--   <c-news-article content={selectedArticleContent}></c-news-article> -->
+    </template>
+</template>

@@ -1,0 +1,35 @@
+<!-- dashboardComponent.html -->
+<template>
+    <lightning-card title="User Information">
+        <!-- Display loading spinner while fetching data -->
+        <template if:true={isLoading}>
+            <lightning-spinner alternative-text="Loading data..." size="large"></lightning-spinner>
+            <p>Fetching data...</p>
+        </template>
+
+        <!-- Display error message if any -->
+        <template if:true={errorMessage}>
+            <div class="slds-text-color_error">
+                <p>{errorMessage}</p>
+            </div>
+        </template>
+
+        <!-- Display user data once fetched -->
+        <template if:true={data.length}>
+            <ul>
+                <template for:each={data} for:item="user">
+                    <li key={user.id}>
+                        <strong>{user.name}</strong><br />
+                        <p>Email: {user.email}</p>
+                        <p>Address: {user.address.street}, {user.address.city}, {user.address.zipcode}</p>
+                    </li>
+                </template>
+            </ul>
+        </template>
+
+        <!-- If no data found -->
+        <template if:true={isNoData}>
+            <p>No data available</p>
+        </template>
+    </lightning-card>
+</template>

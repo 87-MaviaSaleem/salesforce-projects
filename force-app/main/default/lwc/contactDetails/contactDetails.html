@@ -1,0 +1,30 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 11-25-2024
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+-->
+<template>
+    <lightning-card title="Contact Details">
+        <!-- Show the loading spinner while data is being fetched -->
+        <template if:true={isLoading}>
+            <lightning-spinner alternative-text="Loading" size="small"></lightning-spinner>
+        </template>
+        
+        <!-- Show the contact data if it's available and contact.fields is defined -->
+        <template if:true={contact.fields}>
+            <div style="margin-left: 18px;">
+            <p><strong>First Name:</strong> {contact.fields.FirstName.value}</p>
+            <p><strong>Last Name:</strong> {contact.fields.LastName.value}</p>
+            <p><strong>Email:</strong> {contact.fields.Email.value}</p>
+            </div>
+            
+        </template>
+        
+        <!-- Show an error message if the data fetch failed -->
+        <template if:true={contact.error}>
+            <p>Error loading contact data: {contact.error}</p>
+        </template>
+    </lightning-card>
+</template>

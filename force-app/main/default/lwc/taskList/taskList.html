@@ -1,0 +1,28 @@
+<template>
+    <lightning-card>
+        <div class="task-list-container">
+            <h1>Task List</h1>
+
+            <!-- Status Filter Buttons -->
+            <div class="filter-buttons">
+                <button onclick={filterCompleted}>Completed</button>
+                <button onclick={filterPending}>Pending</button>
+                <button onclick={filterInProgress}>In Progress</button>
+            </div>
+
+            <!-- Conditional Rendering -->
+            <template if:true={tasks.length}>
+                <ul class="task-list">
+                    <template for:each={tasks} for:item="task">
+                        <li key={task.Id} class="task-item">
+                            {task.Name} ({task.Status__c})
+                        </li>
+                    </template>
+                </ul>
+            </template>
+            <template if:false={tasks.length}>
+                <p>No tasks available for the selected status.</p>
+            </template>
+        </div>
+    </lightning-card>
+</template>

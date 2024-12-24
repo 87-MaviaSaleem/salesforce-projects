@@ -1,0 +1,121 @@
+/* Chatbot Container Styling */
+.chatbot-container {
+    background-color: #f9f9fb; /* Soft light background */
+    border-radius: 15px;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Chat Display Area */
+.chat-display-area {
+    max-height: 400px; /* Allow a bit more height */
+    overflow-y: auto; /* Enable scrolling */
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 18px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    margin-bottom: 16px;
+    transition: all 0.3s ease;
+}
+
+/* User Message Styling */
+.user-message {
+    background-color: #0070d2; /* Salesforce blue */
+    color: white;
+    border-radius: 20px;
+    padding: 12px 18px;
+    margin-bottom: 12px;
+    max-width: 75%;
+    text-align: right;
+    align-self: flex-end;
+    margin-left: auto; /* Align to the right */
+    transition: transform 0.3s ease;
+}
+
+/* Bot Message Styling */
+.bot-message {
+    background-color: #f1f1f1;
+    color: #333;
+    border-radius: 20px;
+    padding: 12px 18px;
+    margin-bottom: 12px;
+    max-width: 75%;
+    text-align: left;
+    align-self: flex-start;
+    margin-right: auto; /* Align to the left */
+    transition: transform 0.3s ease;
+}
+
+/* Hover effect for both user and bot messages */
+.user-message:hover, .bot-message:hover {
+    transform: scale(1.02); /* Slight zoom-in effect */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Error Message Styling */
+.error-message {
+    background-color: #ff4d4d;
+    color: white;
+    border-radius: 20px;
+    padding: 12px 18px;
+    margin-bottom: 12px;
+    max-width: 75%;
+    text-align: center;
+    align-self: center;
+}
+
+/* Input and Button Styling */
+.input-field {
+    border-radius: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.send-button {
+    width: 100%;
+    border-radius: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease;
+}
+
+.send-button:hover {
+    background-color: #0057a3; /* Darken blue on hover */
+}
+
+.clear-button {
+    margin-left: 10px;
+    width: 100%;
+    border-radius: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease;
+}
+
+.clear-button:hover {
+    background-color: #a6a6a6; /* Darken the neutral color on hover */
+}
+
+/* Loading Spinner */
+.spinner {
+    display: block;
+    margin: 20px auto;
+}
+
+/* Smooth scrolling and custom scrollbar */
+.chat-display-area::-webkit-scrollbar {
+    width: 8px;
+}
+
+.chat-display-area::-webkit-scrollbar-thumb {
+    background-color: #0070d2;
+    border-radius: 4px;
+}
+
+.chat-display-area::-webkit-scrollbar-track {
+    background-color: #f1f1f1;
+}
+
+/* Input and Button Spacing */
+.slds-m-bottom_small {
+    margin-bottom: 1rem !important;
+}

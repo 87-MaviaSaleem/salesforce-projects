@@ -1,0 +1,29 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 11-26-2024
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+-->
+<template>
+    <lightning-card title="Customer Support Logs" icon-name="custom:custom63">
+        <div class="slds-p-around_medium">
+            <c-form-child onformsubmit={handleFormSubmit}></c-form-child>
+        </div>
+        <div class="slds-p-around_medium">
+            <h2 class="slds-text-heading_medium">Submitted Data</h2>
+            <template if:true={submittedLogs}>
+                <ul>
+                    <template for:each={submittedLogs} for:item="log">
+                        <li key={log.id}>
+                            <p><strong>Name:</strong> {log.name}, <strong>Email:</strong> {log.email}</p>
+                        </li>
+                    </template>
+                </ul>
+            </template>
+            <template if:false={submittedLogs}>
+                <p>No submissions yet. Fill out the form and click Submit!</p>
+            </template>
+        </div>
+    </lightning-card>
+</template>

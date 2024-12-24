@@ -1,0 +1,11 @@
+<template>
+    <lightning-button label="Load Heavy Component" onclick={handleLoad}></lightning-button>
+
+    <!-- Show loading state -->
+    <div class="loading" if:true={isLoading}>Loading...</div>  <!-- Ensure this div is conditionally rendered -->
+
+    <!-- Heavy component shown once loading is complete -->
+    <template if:true={isComponentLoaded}>
+        <c-heavy-component></c-heavy-component>
+    </template>
+</template>

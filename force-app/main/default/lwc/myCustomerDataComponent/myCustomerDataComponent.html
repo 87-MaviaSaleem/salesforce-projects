@@ -1,0 +1,25 @@
+<template>
+    <!-- Loading Spinner -->
+    <template if:true={isLoading}>
+        <lightning-spinner alternative-text="Loading" size="small"></lightning-spinner>
+    </template>
+
+    <!-- Error Handling UI -->
+    <template if:true={error}>
+        <div class="slds-text-color_error">
+            <p>Error: {error}</p>
+            <template if:false={isRetrying}>
+                <lightning-button label="Retry" onclick={handleRetry}></lightning-button>
+            </template>
+        </div>
+    </template>
+
+    <!-- Success State: Display Customer Data -->
+    <template if:true={customerData}>
+        <ul>
+            <template for:each={customerData} for:item="customer">
+                <li key={customer.id}>{customer.name}</li>
+            </template>
+        </ul>
+    </template>
+</template>

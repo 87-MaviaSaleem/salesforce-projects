@@ -1,0 +1,44 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 12-06-2024
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+-->
+<template>
+  <div class="rating-card">
+    <p class="heading">Rate Your Dining Experience</p>
+    <div
+      class="stars"
+      onclick={handleRating}
+      onmouseover={handleHover}
+      onmouseleave={handleMouseLeave}
+    >
+      <span data-value="1" class="star">&#9733;</span>
+      <span data-value="2" class="star">&#9733;</span>
+      <span data-value="3" class="star">&#9733;</span>
+      <span data-value="4" class="star">&#9733;</span>
+      <span data-value="5" class="star">&#9733;</span>
+    </div>
+    <p class="feedback">{feedbackMessage}</p>
+
+    <textarea
+      class="feedback-input"
+      placeholder="Share your experience here..."
+      oninput={handleFeedbackInput}
+    ></textarea>
+
+    <div class="buttons">
+      <button class="send-button" onclick={handleSendFeedback}>Send Feedback</button>
+      <button class="reset-button" onclick={resetRating}>Reset</button>
+    </div>
+
+    <!-- Popup -->
+    <div class="popup" if:true={isPopupVisible}>
+      <div class="popup-content">
+        <p>Thank you for your feedback!</p>
+        <button class="close-popup" onclick={closePopup}>Close</button>
+      </div>
+    </div>
+  </div>
+</template>

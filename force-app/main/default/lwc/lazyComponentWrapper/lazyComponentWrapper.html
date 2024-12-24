@@ -1,0 +1,22 @@
+<template>
+    <lightning-button 
+    class="load-button"
+    label="Load Component"
+    onclick={handleButtonClick}
+></lightning-button>
+<template if:true={hasError}>
+    <div class="error-message">
+        Error loading component: {errorMessage}
+    </div>
+</template>
+    <!-- Conditionally render the component -->
+    <template if:true={lazyLoaded}>
+        <c-heavy-component></c-heavy-component>
+    </template>
+
+    <template if:false={lazyLoaded}>
+        <p>Component is not yet loaded.</p>
+    </template>
+
+    
+</template>

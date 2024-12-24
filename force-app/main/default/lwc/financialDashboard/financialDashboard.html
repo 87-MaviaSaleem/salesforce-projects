@@ -1,0 +1,63 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 12-05-2024
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+-->
+<template>
+    <lightning-card title="Financial Dashboard" class="dashboard-container">
+        <!-- Show error message if there's an issue with fetching data -->
+        <template if:true={error}>
+            <div class="slds-text-color_error slds-text-heading_medium">{error}</div>
+        </template>
+
+        <div class="dashboard-content">
+            <!-- Toggle between Account Info and Transaction History -->
+            <div class="view-toggle">
+                <lightning-button variant="brand" label="View Account Info" onclick={handleStateChangeBalance} class="action-button"></lightning-button>
+                <lightning-button variant="neutral" label="View Transactions" onclick={handleStateChangeTransactions} class="action-button"></lightning-button>
+            </div>
+
+            <!-- Account Information Section -->
+            <template if:true={isBalanceView}>
+                <section class="account-info">
+                    <h2 class="section-header">Account Information</h2>
+                    <template if:true={accountData}>
+                        <div class="info-card">
+                            <lightning-icon icon-name="standard:user" size="large" class="icon"></lightning-icon>
+                            <div class="account-details">
+                                <p><strong>Name:</strong> {accountData.Name}</p>
+                                <p><strong>Phone:</strong> {accountData.Phone}</p>
+                                <p><strong>Balance:</strong> <span class="balance-text">${accountData.Balance__c}</span></p>
+                            </div>
+                        </div>
+                    </template>
+                    <template if:false={accountData}>
+                        <p>No account data available.</p>
+                    </template>
+                </section>
+            </template>
+
+            <!-- Transaction History Section -->
+            <template if:true={isTransactionView}>
+                <section class="transaction-history">
+                    <h2 class="section-header">Transaction History</h2>
+                    <template if:true={transactionHistory}>
+                        <ul class="transaction-list">
+                            <template for:each={transactionHistory} for:item="transaction">
+                                <li key={transaction.Id} class="transaction-item">
+                                    <lightning-icon icon-name="utility:money" size="small" class="transaction-icon"></lightning-icon>
+                                    <span>{transaction.Date__c} - ${transaction.Amount__c}</span>
+                                </li>
+                            </template>
+                        </ul>
+                    </template>
+                    <template if:false={transactionHistory}>
+                        <p>No transaction history available.</p>
+                    </template>
+                </section>
+            </template>
+        </div>
+    </lightning-card>
+</template>

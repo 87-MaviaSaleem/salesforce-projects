@@ -1,0 +1,27 @@
+<template>
+    <lightning-card title={Title}>
+        <div class="slds-m-around_medium">
+            <lightning-combobox
+                name="languageSelector"
+                label="Select Language"
+                value={selectedLanguage}
+                placeholder="Choose Language"
+                options={languageOptions}
+                onchange={handleLanguageChange}>
+            </lightning-combobox>
+            <template if:true={translations}>
+                <p>{welcomeMessage}</p>
+                <div class="slds-grid slds-wrap">
+                    <div class="slds-col slds-size_1-of-2">
+                        <p>{totalSales}</p>
+                        <span>{totalSalesLabel}</span>
+                    </div>
+                    <div class="slds-col slds-size_1-of-2">
+                        <p>{totalCustomers}</p>
+                        <span>{totalCustomersLabel}</span>
+                    </div>
+                </div>
+            </template>
+        </div>
+    </lightning-card>
+</template>

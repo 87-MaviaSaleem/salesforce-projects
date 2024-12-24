@@ -1,0 +1,91 @@
+.slds-modal__container {
+    width: 500px;
+    max-width: 100%;
+}
+
+.profile-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.profile-info {
+    margin-left: 10px;
+    flex-grow: 1;
+}
+
+.profile-name {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+}
+
+.create-post-btn {
+    margin: 10px;
+    width: 200px;
+    font-size: 16px;
+}
+
+/* Post Content Area */
+.post-textarea {
+    width: 100%;
+    margin-top: 10px;
+    resize: none;
+}
+
+/* Post Options Icons */
+.post-options {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+}
+
+.post-options lightning-button-icon {
+    cursor: pointer;
+    font-size: 20px;
+}
+
+/* Emoji Picker */
+.emoji-picker {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+    flex-wrap: wrap;
+}
+
+.emoji {
+    font-size: 30px;
+    cursor: pointer;
+}
+
+/* Boost and Schedule Options */
+.boost-options {
+    margin-top: 20px;
+}
+
+.schedule-link {
+    font-size: 14px;
+    color: #005cbf;
+    text-decoration: none;
+    margin-top: 10px;
+}
+
+/* Modal Footer */
+.slds-modal__footer {
+    display: flex;
+    justify-content: flex-end;
+    padding-top: 15px;
+}
+
+.post-btn {
+    background-color: #1877f2;
+    color: white;
+    border-radius: 5px;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.post-btn:hover {
+    background-color: #155fbb;
+}

@@ -1,0 +1,60 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 11-25-2024
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+-->
+<template>
+    <!-- Card to display the Gatepass System UI -->
+    <lightning-card title="Gatepass System">
+        <div class="slds-m-around_medium">
+            
+            <!-- Search Input Fields for Event Name and Guest Name -->
+            <!-- These input fields allow users to filter gatepasses based on event name or guest name -->
+            <lightning-input label="Search by Event Name" value={eventName} onchange={handleInputChange} name="eventName"></lightning-input>
+            <lightning-input label="Search by Guest Name" value={guestName} onchange={handleInputChange} name="guestName"></lightning-input>
+
+            <!-- Button to trigger search functionality based on filters (eventName and guestName) -->
+            <lightning-button variant="brand" label="Search Gatepasses" onclick={loadGatepasses}></lightning-button>
+
+            <!-- Section to Create a New Gatepass -->
+            <!-- Input fields to capture event details for creating a new gatepass -->
+            <lightning-input label="Event Name" value={eventName} onchange={handleInputChange} name="eventName"></lightning-input>
+            <lightning-input label="Guest Name" value={guestName} onchange={handleInputChange} name="guestName"></lightning-input>
+            <lightning-input type="date" label="Gatepass Date" value={gatepassDate} onchange={handleInputChange} name="gatepassDate"></lightning-input>
+            <lightning-input type="time" label="Gatepass Time" value={gatepassTime} onchange={handleInputChange} name="gatepassTime"></lightning-input>
+
+            <!-- Button to create a new gatepass -->
+            <lightning-button variant="brand" label="Create Gatepass" onclick={createGatepass}></lightning-button>
+
+            <!-- Section to display existing gatepasses in a data table -->
+            <template if:true={filteredGatepasses}>
+                <h3 class="slds-m-top_medium">Existing Gatepasses</h3>
+                <!-- DataTable to display the filtered gatepasses based on the search criteria -->
+                <lightning-datatable
+                    data={filteredGatepasses}
+                    columns={columns}
+                    key-field="id"
+                    onrowaction={handleRowAction}>
+                </lightning-datatable>
+            </template>
+
+            <!-- Section to display and edit the details of a selected gatepass -->
+            <template if:true={selectedGatepass}>
+                <lightning-card title="Gatepass Details">
+                    <div class="slds-m-around_medium">
+                        <!-- Input fields to edit the selected gatepass -->
+                        <lightning-input label="Event Name" value={selectedGatepass.Event_Name__c} onchange={handleEditChange} name="eventName"></lightning-input>
+                        <lightning-input label="Guest Name" value={selectedGatepass.Guest_Name__c} onchange={handleEditChange} name="guestName"></lightning-input>
+                        <lightning-input type="date" label="Gatepass Date" value={selectedGatepass.Gatepass_Date__c} onchange={handleEditChange} name="gatepassDate"></lightning-input>
+                        <lightning-input type="time" label="Gatepass Time" value={selectedGatepass.Gatepass_Time__c} onchange={handleEditChange} name="gatepassTime"></lightning-input>
+
+                        <!-- Button to trigger the update operation for the selected gatepass -->
+                        <lightning-button variant="brand" label="Update Gatepass" onclick={updateGatepass}></lightning-button>
+                    </div>
+                </lightning-card>
+            </template>
+        </div>
+    </lightning-card>
+</template>

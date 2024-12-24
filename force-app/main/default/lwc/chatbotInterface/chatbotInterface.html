@@ -1,0 +1,59 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 12-05-2024
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+-->
+<template>
+    <div class="slds-p-around_medium chatbot-container">
+        <!-- Loading Spinner -->
+        <lightning-spinner 
+            if:true={isLoading} 
+            alternative-text="Loading"
+            size="large"
+            class="slds-m-top_small spinner">
+        </lightning-spinner>
+
+        <!-- Chat Display Area (conditionally rendered based on conversation length) -->
+        <template if:true={hasConversation}>
+            <div class="chat-display-area slds-box slds-box_xx-small slds-m-top_medium slds-p-around_medium">
+                <template for:each={conversation} for:item="message">
+                    <div key={message.id} class={message.className}>
+                        <p><strong>{message.sender}:</strong> {message.text}</p>
+                    </div>
+                </template>
+            </div>
+        </template>
+
+        <!-- User Input Box -->
+        <lightning-input 
+            label="User Query" 
+            placeholder="Type your message"
+            value={userMessage} 
+            onchange={handleInputChange}
+            disabled={isLoading}
+            class="slds-m-bottom_small input-field">
+        </lightning-input>
+
+        <!-- Send Button -->
+        <lightning-button 
+            label="Send" 
+            onclick={sendMessage}
+            disabled={isSendButtonDisabled}
+            variant="brand"
+            class="slds-m-bottom_small send-button">
+        </lightning-button>
+
+        <!-- Clear Chat Button -->
+        <template if:true={hasConversation}>
+
+            <lightning-button 
+                label="Clear Chat" 
+                onclick={clearChat}
+                variant="neutral" 
+                class="slds-m-bottom_small clear-button">
+            </lightning-button>
+        </template>
+    </div>
+</template>

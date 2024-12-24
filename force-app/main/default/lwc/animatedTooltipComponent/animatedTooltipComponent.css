@@ -1,0 +1,75 @@
+/* Tooltip container styling */
+.tooltip-container {
+    display: inline-block;
+    position: relative;
+    margin: 50px;
+}
+
+/* Tooltip trigger button styling */
+.tooltip-trigger {
+    background-color: #4CAF50; /* Green button */
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.tooltip-trigger:hover {
+    background-color: #45a049; /* Darker green on hover */
+    transform: translateY(-3px); /* Slight raise effect */
+}
+
+/* Tooltip styling */
+.tooltip {
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.85); /* Dark background */
+    color: white;
+    padding: 12px 18px;
+    font-size: 14px;
+    font-family: 'Arial', sans-serif;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    opacity: 0; /* Hidden by default */
+    visibility: hidden;
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+    z-index: 10;
+    white-space: nowrap;
+    bottom: 100%; /* Tooltip appears above the button */
+    left: 50%;
+    transform: translateX(-50%); /* Center the tooltip horizontally */
+    margin-bottom: 10px;
+}
+
+/* Tooltip visible state */
+.tooltip.show {
+    opacity: 1; /* Make the tooltip visible */
+    visibility: visible;
+}
+
+/* Tooltip arrow */
+.tooltip::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent transparent rgba(0, 0, 0, 0.85) transparent;
+}
+
+/* Responsive design */
+@media (max-width: 600px) {
+    .tooltip-trigger {
+        font-size: 14px;
+        padding: 10px 20px;
+    }
+
+    .tooltip {
+        font-size: 12px;
+    }
+}

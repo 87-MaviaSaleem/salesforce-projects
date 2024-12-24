@@ -1,0 +1,14 @@
+/* Placeholder CSS */
+:host {
+    display: block;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+p {
+    font-size: 16px;
+    text-align: center;
+}

@@ -1,0 +1,36 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 11-27-2024
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+-->
+<template>
+    <lightning-card title="Lead Management">
+        <div class="slds-p-around_medium">
+            <!-- Form for Insert or Edit -->
+            <lightning-record-edit-form object-api-name="Lead" record-id={recordId}>
+                <lightning-input-field field-name="FirstName"></lightning-input-field>
+                <lightning-input-field field-name="LastName"></lightning-input-field>
+                <lightning-input-field field-name="Email"></lightning-input-field>
+                <lightning-input-field field-name="Company"></lightning-input-field>
+                <lightning-input-field field-name="Status"></lightning-input-field>
+                <lightning-button 
+                    variant="brand" 
+                    label={saveButtonLabel} 
+                    onclick={handleFormSubmit}>
+                </lightning-button>
+            </lightning-record-edit-form>
+
+            <br/>
+
+            <!-- DataTable for displaying Leads -->
+            <lightning-datatable 
+                data={leads} 
+                columns={columns} 
+                key-field="Id" 
+                onrowaction={handleRowAction}>
+            </lightning-datatable>
+        </div>
+    </lightning-card>
+</template>

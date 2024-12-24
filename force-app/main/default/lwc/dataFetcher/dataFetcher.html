@@ -1,0 +1,18 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 12-01-2024
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+-->
+<template>
+    <!-- Display the fetched data if it exists -->
+    <template if:true={data}>
+        <p>Data fetched successfully: {data}</p>
+    </template>
+
+    <!-- Display an error message if an error occurs -->
+    <template if:true={error}>
+        <p class="error">Error: {error}</p>
+    </template>
+</template>

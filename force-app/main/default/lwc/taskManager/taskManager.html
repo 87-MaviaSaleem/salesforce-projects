@@ -1,0 +1,64 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 11-25-2024
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+-->
+<template>
+    <lightning-card title="Task Manager" icon-name="standard:task">
+        <!-- Search Box -->
+         <div class="padding">
+            <lightning-input
+            type="text"
+            label="Search Tasks"
+            value={searchTerm}
+            onchange={handleSearch}
+            style="margin-bottom: 18px;">
+        </lightning-input>
+
+        <!-- Task List -->
+        <template if:true={filteredTasks}>
+            <table class="task-list" >
+                <thead>
+                    <tr>
+                        <th>Subject</th>
+                        <th>Assigned To</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <template for:each={filteredTasks} for:item="task">
+                        <tr key={task.Id} data-task-id={task.Id} onclick={handleRowClick}>
+                            <td>{task.Subject}</td>
+                            <td>{task.OwnerId}</td>
+                            <td>{task.Status}</td>
+                            <td>
+                                <button data-task-id={task.Id} onclick={handleCompleteTask}>
+                                    Complete Task
+                                </button>
+                            </td>
+                        </tr>
+                    </template>
+                </tbody>
+            </table>
+        </template>
+
+
+         </div>
+       
+            <!-- Task Details -->
+        <template if:true={selectedTask}>
+            <lightning-card title="Task Details" icon-name="action:info">
+                <div class="padding">
+                <p><strong>Subject:</strong> {selectedTask.Subject}</p>
+                <p><strong>Assigned To:</strong> {selectedTask.OwnerId}</p>
+                <p><strong>Status:</strong> {selectedTask.Status}</p>
+            </div>
+            </lightning-card>
+        </template>
+        
+        
+    </lightning-card>
+</template>

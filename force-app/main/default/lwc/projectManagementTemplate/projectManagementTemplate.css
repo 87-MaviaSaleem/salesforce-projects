@@ -1,0 +1,21 @@
+.dashboard-container {
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+.controls {
+  margin-bottom: 20px;
+}
+.project-card {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
+.project-card.completed {
+  background-color: #d4edda;
+  border-color: #c3e6cb;
+}
+.project-card.ongoing {
+  background-color: #fff3cd;
+  border-color: #ffeeba;
+}

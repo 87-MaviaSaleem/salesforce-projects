@@ -1,0 +1,96 @@
+/* General Container Styling */
+.form-container {
+    max-width: 750px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border: 1px solid #ddd;
+}
+
+/* Card Styling */
+.lightning-card {
+    box-shadow: none;
+    border-radius: 10px;
+    padding: 1rem;
+}
+
+/* Section Title */
+.section-title {
+    font-size: 1.75rem;
+    color: #333;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+}
+
+/* Input fields styling */
+.input-field {
+    margin-bottom: 1.5rem;
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Submit Button */
+.submit-button {
+    border: none;
+    color: white;
+    font-size: 1.1rem;
+    padding: 10px 20px;
+    border-radius: 5px;
+    width: 100%;
+}
+
+/* Action Button for Additional Options */
+.action-button {
+    border: none;
+    color: #333;
+    font-size: 1rem;
+    padding: 10px 20px;
+    border-radius: 5px;
+    width: 100%;
+    margin-top: 1rem;
+}
+
+/* Error Messages Styling */
+.error-messages {
+    color: red;
+    margin-top: 1rem;
+}
+
+/* Interactive Container for Additional Options */
+.additional-options-container {
+    margin-top: 3rem;
+    padding-top: 1rem;
+    border-top: 2px solid #f4f4f4;
+}
+
+/* Dropdown and Date Picker Styling */
+.lightning-combobox,
+.lightning-input {
+    margin-bottom: 1.5rem;
+}
+
+/* Card Header Styling */
+.lightning-card .slds-card__header {
+    background-color: #f4f4f4;
+    padding: 15px;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .form-container {
+        padding: 1.5rem;
+    }
+
+    .submit-button {
+        font-size: 1rem;
+    }
+
+    .input-field {
+        font-size: 0.9rem;
+    }
+}

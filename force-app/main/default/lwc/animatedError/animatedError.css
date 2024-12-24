@@ -1,0 +1,28 @@
+.error-container {
+  background-color: #ff4d4d;
+  color: white;
+  padding: 15px;
+  border-radius: 5px;
+  margin: 10px 0;
+  text-align: center;
+  animation-duration: 0.5s;
+}
+
+.shake {
+  animation-name: shakeAnimation;
+}
+
+@keyframes shakeAnimation {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-8px);
+  }
+  50% {
+    transform: translateX(8px);
+  }
+  75% {
+    transform: translateX(-8px);
+  }
+}

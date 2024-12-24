@@ -1,0 +1,53 @@
+<!--
+    @description       : 
+    @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+    @group             : 
+    @last modified on  : 11-28-2024
+    @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+    -->
+    <template>
+        <lightning-card  variant="Narrow"  title="Hello" icon-name="standard:account">
+        <div class="wizard">
+        <!-- Progress Bar -->
+        <div class="progress-bar">
+            <div class="progress" style={progressStyle}></div>
+        </div>
+
+        <div class="step-content">
+            <!-- Step 1 -->
+            <template if:true={isStepOne}>
+                <div class="step">
+                    <h2>Step 1: Personal Information</h2>
+                    <input type="text" name="name" placeholder="Full Name" data-step="step1" onchange={handleInputChange} value={step1Name} />
+                    <input type="date" name="dob" data-step="step1" onchange={handleInputChange} value={step1Dob} />
+                </div>
+            </template>
+
+            <!-- Step 2 -->
+            <template if:true={isStepTwo}>
+                <div class="step">
+                    <h2>Step 2: Financial Details</h2>
+                    <input type="number" name="income" placeholder="Annual Income" data-step="step2" onchange={handleInputChange} value={step2Income} />
+                    <input type="number" name="loanAmount" placeholder="Desired Loan Amount" data-step="step2" onchange={handleInputChange} value={step2LoanAmount} />
+                </div>
+            </template>
+
+            <!-- Step 3 -->
+            <template if:true={isStepThree}>
+                <div class="step">
+                    <h2>Step 3: Credit & Loan Term</h2>
+                    <input type="number" name="creditScore" placeholder="Credit Score" data-step="step3" onchange={handleInputChange} value={step3CreditScore} />
+                    <input type="number" name="loanTerm" placeholder="Loan Term (Years)" data-step="step3" onchange={handleInputChange} value={step3LoanTerm} />
+                </div>
+            </template>
+        </div>
+
+        <!-- Navigation Buttons -->
+        <div class="button-container">
+            <button data-action="previous" onclick={handleNavigation} disabled={isStepOne} class="previous-btn">Previous</button>
+            <button data-action="next" onclick={handleNavigation} disabled={isStepThree} class="next-btn">Next</button>
+        </div>
+    </div>
+        
+    </lightning-card>
+</template>

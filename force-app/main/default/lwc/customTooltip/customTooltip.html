@@ -1,0 +1,28 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 12-10-2024
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+-->
+<template>
+    <!-- Product Tooltip Section (Scenario 1) -->
+    <div class="product-container" onmouseover={handleMouseOver} onclick={handleButtonClick}>
+        <span class="product-name">Awesome Product</span>
+        <span class="tooltip-text" if:true={tooltipVisible}>{tooltipData}</span>
+        <button class="add-to-cart">Add to Cart</button>
+    </div>
+
+    <!-- Stock Tooltip Section (Scenario 2) -->
+    <div class="graph-container" onmouseover={handleGraphHover}>
+        <span class="graph-point" data-stock-price="150">Stock Graph Point</span>
+        <span class="tooltip-text" if:true={tooltipVisible}>{tooltipData}</span>
+    </div>
+
+    <!-- Medication Tooltip Section (Scenario 3) -->
+    <div class="medication-container" onmouseover={handleMedicationHover} onclick={handleLinkClick}>
+        <span class="medication-name">Ibuprofen</span>
+        <span class="tooltip-text" if:true={tooltipVisible}>{tooltipContent}</span>
+        <a href="/medication-details" class="documentation-link">Read more</a>
+    </div>
+</template>

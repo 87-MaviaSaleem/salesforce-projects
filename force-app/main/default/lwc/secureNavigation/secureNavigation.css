@@ -1,0 +1,11 @@
+.button-container {
+    display: flex;
+    gap: 1rem; /* Space between buttons */
+    flex-wrap: wrap; /* Ensures buttons wrap to the next line if needed */
+    justify-content: center; /* Centers the buttons */
+    margin-top: 1rem;
+}
+
+.button-style {
+    flex-shrink: 0; /* Prevents buttons from shrinking */
+}

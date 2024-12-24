@@ -1,0 +1,18 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 11-29-2024
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+-->
+<template>
+    <!-- Tooltip trigger element -->
+    <div class="tooltip-container" onmouseover={showTooltip} onmouseleave={hideTooltip}>
+      <button class="tooltip-trigger">Hover over me</button>
+    </div>
+  
+    <!-- Tooltip content, visible when hovered -->
+    <div class={tooltipClass}>
+      {tooltipMessage}
+    </div>
+  </template>

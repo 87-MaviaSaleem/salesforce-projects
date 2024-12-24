@@ -1,0 +1,30 @@
+<template>
+    <lightning-card title="Lazy Loading Issue Tracker">
+        <div class="slds-p-around_medium">
+            <lightning-input 
+                label="Name" 
+                value={name} 
+                data-id="user-id" 
+                onchange={handleNameIdChange}>
+            </lightning-input>
+            <lightning-textarea 
+                label="Issue Description" 
+                value={issueDescription} 
+                data-id="issue-description" 
+                onchange={handleDescriptionChange}>
+            </lightning-textarea>
+            <lightning-button 
+                variant="brand" 
+                label="Submit Issue" 
+                onclick={handleSubmit} 
+                data-id="submit-button">
+            </lightning-button>
+        </div>
+
+        <template if:true={isSubmitted}>
+            <div class="slds-p-around_medium">
+                <p>Thank you! Your issue has been submitted.</p>
+            </div>
+        </template>
+    </lightning-card>
+</template>

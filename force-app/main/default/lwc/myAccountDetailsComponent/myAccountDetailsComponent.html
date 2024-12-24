@@ -1,0 +1,23 @@
+<template>
+    <!-- Loading Spinner -->
+    <template if:true={isLoading}>
+        <lightning-spinner alternative-text="Loading" size="small"></lightning-spinner>
+    </template>
+
+    <!-- Error Handling -->
+    <template if:true={error}>
+        <div class="slds-text-color_error">
+            <p>{error}</p>
+        </div>
+    </template>
+
+    <!-- Success: Display Account Details -->
+    <template if:true={accountData}>
+        <div class="slds-box slds-theme_alert-texture">
+            <h3>Account Details</h3>
+            <p><strong>Name:</strong> {accountData.Name}</p>
+            <p><strong>Industry:</strong> {accountData.Industry}</p>
+            <!-- Additional fields here -->
+        </div>
+    </template>
+</template>

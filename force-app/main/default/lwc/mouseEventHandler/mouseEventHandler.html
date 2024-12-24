@@ -1,0 +1,23 @@
+<template>
+    <lightning-card title="Mouse Event Handler">
+        <div class="slds-m-around_medium" onmousemove={handleMouseMove}> <!-- Corrected here -->
+            <!-- Display message about button interaction -->
+            <button
+                class="slds-button slds-button_neutral"
+                onmouseover={handleMouseEnter}
+                onmouseleave={handleMouseLeave}
+                onclick={handleClick}
+            >
+                Hover or Click Me
+            </button>
+            
+            <!-- Display dynamic message -->
+            <p>{message}</p>
+            
+            <!-- Tooltip -->
+            <div class={tooltipClass} style={tooltipStyle}>
+                {tooltipMessage}
+            </div>
+        </div>
+    </lightning-card>
+</template>

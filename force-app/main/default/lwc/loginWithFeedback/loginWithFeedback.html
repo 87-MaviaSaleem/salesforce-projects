@@ -1,0 +1,51 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 11-28-2024
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+-->
+<template>
+    <div class="wizard-container">
+      <!-- Step Indicators -->
+       <!-- Step Indicators -->
+       <div class="step-indicator">
+        <span class={step1Class}>Step 1</span>
+        <span class={step2Class}>Step 2</span>
+        <span class={step3Class}>Step 3</span>
+      </div>
+      <!-- Step Content -->
+      <template if:true={currentStep}>
+  
+        <!-- Step 1 -->
+        <template if:true={isStep1}>
+          <div class="step-content">
+            <h2>Step 1: Personal Information</h2>
+            <lightning-input label="Name" value={step1Name} onchange={handleInputChange}></lightning-input>
+          </div>
+        </template>
+  
+        <!-- Step 2 -->
+        <template if:true={isStep2}>
+          <div class="step-content">
+            <h2>Step 2: Financial Information</h2>
+            <lightning-input label="Income" value={step2Income} onchange={handleInputChange}></lightning-input>
+          </div>
+        </template>
+  
+        <!-- Step 3 -->
+        <template if:true={isStep3}>
+          <div class="step-content">
+            <h2>Step 3: Review & Submit</h2>
+            <p>Name: {step1Name}</p>
+            <p>Income: {step2Income}</p>
+          </div>
+        </template>
+  
+      </template>
+  
+      <!-- Navigation Buttons -->
+      <lightning-button label="Previous" onclick={goToPreviousStep} disabled={isFirstStep}></lightning-button>
+      <lightning-button label="Next" onclick={goToNextStep} disabled={isLastStep}></lightning-button>
+    </div>
+  </template>

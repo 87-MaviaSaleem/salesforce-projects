@@ -1,0 +1,6 @@
+<template>
+  <div class="error-notification" if:true={visible}>
+    <p class="error-message">{message}</p>
+    <button class="close-button" onclick={handleClose}>✖</button>
+  </div>
+</template>

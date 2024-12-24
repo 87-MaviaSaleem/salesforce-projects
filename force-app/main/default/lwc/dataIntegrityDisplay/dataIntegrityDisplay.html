@@ -1,0 +1,22 @@
+<template>
+    <lightning-card title="Validation Results" icon-name="utility:success">
+        <div class="results-container">
+            <template if:true={validationResults}>
+                <template if:true={validationResults.isValid}>
+                    <p class="valid-message">✅ All data is valid.</p>
+                </template>
+                <template if:false={validationResults.isValid}>
+                    <p class="invalid-message">❌ Data integrity issues found:</p>
+                    <ul class="error-list">
+                        <template for:each={errors} for:item="error">
+                            <li key={error} class="error-item">{error}</li>
+                        </template>
+                    </ul>
+                </template>
+            </template>
+            <template if:false={validationResults}>
+                <p class="no-results-message">ℹ️ No validation results to display.</p>
+            </template>
+        </div>
+    </lightning-card>
+</template>

@@ -1,0 +1,12 @@
+<template>
+    <lightning-card title="Update Project Hours">
+        <template if:true={project}>
+            <div class="slds-p-around_medium">
+                <p><strong>Project Name:</strong> {project.Name}</p>
+                <p><strong>Status:</strong> {project.Status__c}</p>
+                <lightning-input type="number" label="Hours Worked" value={hoursWorked} onchange={handleHoursChange}></lightning-input>
+                <lightning-button label="Save" onclick={handleSave} class="slds-m-top_small"></lightning-button>
+            </div>
+        </template>
+    </lightning-card>
+</template>

@@ -1,0 +1,19 @@
+/* Add custom styles if necessary */
+
+.slds-card {
+    background-color: #f4f6f9; /* Light background color */
+    border-radius: 10px; /* Round corners for the card */
+}
+
+.slds-input {
+    border: 1px solid #e1e1e1; /* Subtle border around input fields */
+    padding: 12px; /* Add padding for better clickability */
+}
+
+.slds-button_brand {
+    background-color: #0070d2; /* Brand color for the button */
+}
+
+.slds-button_brand:hover {
+    background-color: #0057b7; /* Darker shade on hover */
+}

@@ -1,0 +1,39 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 11-19-2024
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+-->
+<template>
+    <lightning-card title="Case Management">
+        <!-- Case Status Filter -->
+        <div class="slds-m-around_medium">
+            <lightning-combobox
+                label="Filter by Status"
+                value={selectedStatus}
+                options={statusOptions}
+                onchange={handleStatusChange}>
+            </lightning-combobox>
+        </div>
+
+        <!-- Show cases only if data is available -->
+        <template if:true={cases}>
+            <lightning-datatable
+                data={cases}
+                columns={columns}
+                key-field="Id"
+                onsort={handleSort}
+                hide-checkbox-column
+                oncellchange={handleCellChange}>
+            </lightning-datatable>
+        </template>
+
+        <!-- Display error if data fetch fails -->
+        <template if:true={error}>
+            <div class="slds-text-color_error">
+                <p>Error loading cases: {error}</p>
+            </div>
+        </template>
+    </lightning-card>
+</template>

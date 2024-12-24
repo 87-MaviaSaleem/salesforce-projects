@@ -1,0 +1,10 @@
+<template>
+    <div class="child-container">
+        <p>Child Component: Click the button below to trigger an event.</p>
+        <lightning-button label="Trigger Event" onclick={triggerEvent}></lightning-button>
+        <lightning-button 
+            label="Trigger Event and Stop Propagation" 
+            onclick={triggerEventWithStop}>
+        </lightning-button>
+    </div>
+</template>

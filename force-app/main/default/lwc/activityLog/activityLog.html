@@ -1,0 +1,61 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 11-28-2024
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+-->
+<template>
+    <lightning-card title="Activity Log" variant="elevated">
+        <!-- Card Body with Spacing and Alignment -->
+        <div class="slds-p-around_medium custom-card-body">
+            <!-- Activity Input Form with Proper Spacing -->
+            <lightning-input 
+                label="Activity Name" 
+                value={activityName} 
+                onchange={handleInputChange} 
+                data-id="activityName" 
+                class="slds-m-bottom_medium custom-input">
+            </lightning-input>
+            
+            <lightning-input 
+                label="Duration (minutes)" 
+                value={activityDuration} 
+                onchange={handleInputChange} 
+                data-id="activityDuration" 
+                type="number" 
+                class="slds-m-bottom_medium custom-input">
+            </lightning-input>
+            
+            <lightning-input 
+                label="Activity Date" 
+                value={activityDate} 
+                onchange={handleInputChange} 
+                data-id="activityDate" 
+                type="date"
+                class="slds-m-bottom_medium custom-input"
+                >
+            </lightning-input>
+
+            <!-- Save Button with Styling -->
+            <lightning-button 
+                variant="brand" 
+                label="Save" 
+                onclick={handleSaveActivity} 
+                class="slds-m-bottom_medium custom-button">
+            </lightning-button>
+
+            <!-- Data Table of Logged Activities -->
+            <template if:true={activities}>
+                <div class="slds-m-top_large">
+                    <lightning-datatable
+                        key-field="id"
+                        data={activities}
+                        columns={columns}
+                        class="custom-datatable">
+                    </lightning-datatable>
+                </div>
+            </template>
+        </div>
+    </lightning-card>
+</template>

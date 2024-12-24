@@ -1,0 +1,10 @@
+<template>
+  <div class="task-container" ondragstart={handleDragStart} ondrop={handleDrop} ondragover={handleDragOver}>
+    <template for:each={tasks} for:item="task">
+      <div key={task.id} class="task" draggable="true" data-id={task.id}>
+        <h3>{task.title}</h3>
+        <p>{task.status}</p>
+      </div>
+    </template>
+  </div>
+</template>

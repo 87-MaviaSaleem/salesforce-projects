@@ -1,0 +1,10 @@
+<template> 
+  <lightning-card title="Child Component"> 
+     <div slot="footer">
+      <div>Message from Parent: {parentdata}</div> 
+      <lightning-input type="text" placeholder="Enter something" onkeyup={childInputTextHandler}> </lightning-input> 
+      <lightning-button variant="brand" label="Send to Parent" onclick={childClickHandler} class="slds-m-left_x-small"> </lightning-button> 
+    </div> 
+
+  </lightning-card>  
+</template>

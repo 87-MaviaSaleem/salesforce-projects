@@ -1,0 +1,32 @@
+.task-list-container {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+}
+
+.filter-buttons button {
+    margin: 5px;
+    padding: 10px;
+    background-color: #0070d2;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.filter-buttons button:hover {
+    background-color: #005fb2;
+}
+
+.task-list {
+    margin-top: 20px;
+    list-style-type: none;
+    padding: 0;
+}
+
+.task-item {
+    padding: 10px;
+    margin: 5px 0;
+    background-color: #f4f6f9;
+    border: 1px solid #dcdcdc;
+    border-radius: 5px;
+}

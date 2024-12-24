@@ -1,0 +1,50 @@
+.valid {
+    color: green;
+}
+
+.invalid {
+    color: red;
+}
+
+ul {
+    list-style-type: disc;
+    margin-left: 20px;
+}
+.results-container {
+    padding: 1rem;
+    text-align: center; /* Centers all content */
+}
+
+.valid-message {
+    color: #2e8540; /* Green for success */
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+.invalid-message {
+    color: #c23934; /* Red for error */
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+.error-list {
+    text-align: left; /* Aligns the list items to the left */
+    margin: 0 auto;
+    padding: 0;
+    max-width: 400px; /* Keeps the list contained */
+}
+
+.error-item {
+    color: #c23934; /* Red for error items */
+    font-size: 1rem;
+    margin: 0.5rem 0;
+    list-style: disc inside;
+}
+
+.no-results-message {
+    color: #4a4a4a; /* Gray for neutral info message */
+    font-size: 1.1rem;
+    font-style: italic;
+}

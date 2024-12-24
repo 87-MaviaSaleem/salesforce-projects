@@ -1,0 +1,51 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 11-19-2024
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+-->
+<template>
+    <lightning-card title="Opportunity Management">
+        
+        <!-- Stage Filter -->
+        <div class="slds-m-around_medium">
+            <lightning-combobox
+                label="Filter by Stage"
+                value={selectedStage}
+                options={stageOptions}
+                onchange={handleStageChange}>
+            </lightning-combobox>
+        </div>
+
+        <!-- Owner Filter -->
+        <div class="slds-m-around_medium">
+            <lightning-combobox
+                label="Filter by Owner"
+                value={selectedOwner}
+                options={ownerOptions}
+                onchange={handleOwnerChange}>
+            </lightning-combobox>
+        </div>
+
+        <!-- Opportunities Table -->
+        <template if:true={opportunities}>
+            <lightning-datatable
+                data={opportunities}
+                columns={columns}
+                key-field="Id"
+                onsort={handleSort}
+                hide-checkbox-column
+                oncellchange={handleCellChange}>
+            </lightning-datatable>
+        </template>
+
+        <!-- Error Message -->
+        <template if:true={error}>
+            <div class="slds-text-color_error">
+                <p>Error loading opportunities: {error}</p>
+            </div>
+        </template>
+
+    </lightning-card>
+</template>

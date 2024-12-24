@@ -1,0 +1,15 @@
+<template>
+    <lightning-card title="Order Dashboard">
+        <lightning-combobox name="sortField" label="Sort By" value={sortField} options={sortOptions} onchange={handleSortChange}></lightning-combobox>
+        <lightning-combobox name="statusFilter" label="Filter by Status" value={filterStatus} options={statusOptions} onchange={handleFilterChange}></lightning-combobox>
+
+        <template if:true={orders.data}>
+            <template for:each={orders.data} for:item="order">
+                <p key={order.Id}>{order.Order_Number__c} - ${order.Order_Amount__c} - {order.Status__c}</p>
+            </template>
+        </template>
+
+        <lightning-button variant="brand" label="Previous" onclick={handlePreviousPage} disabled={isFirstPage}></lightning-button>
+        <lightning-button variant="brand" label="Next" onclick={handleNextPage} disabled={isLastPage}></lightning-button>
+    </lightning-card>
+</template>

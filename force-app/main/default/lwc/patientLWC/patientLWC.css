@@ -1,0 +1,27 @@
+.patient-list {
+    height: 600px;
+    overflow-y: auto;
+    border: 1px solid #ddd;
+    padding: 10px;
+}
+
+.patient-card {
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+    padding: 15px;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+.loading-spinner {
+    text-align: center;
+    margin-top: 20px;
+    color: #666;
+}
+
+.end-of-list {
+    text-align: center;
+    margin-top: 20px;
+    color: #999;
+    font-style: italic;
+}

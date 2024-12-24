@@ -1,0 +1,35 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 11-26-2024
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+-->
+<template>
+    <lightning-card title="Customer Feedback Logs">
+        <div class="slds-p-around_medium">
+            <!-- Include the Child Component (Feedback Form) -->
+            <c-feedback-form onfeedbacksubmit={handleFeedbackSubmit}></c-feedback-form>
+        </div>
+
+        <!-- Display the Logged Feedback -->
+        <div class="slds-p-around_medium">
+            <h2 class="slds-text-heading_medium">Submitted Feedback</h2>
+            <template if:true={feedbackLogs.length}>
+                <ul>
+                    <template for:each={feedbackLogs} for:item="log">
+                        <li key={log.id}>
+                            <p><strong>Name:</strong> {log.name}</p>
+                            <p><strong>Email:</strong> {log.email}</p>
+                            <p><strong>Feedback Type:</strong> {log.feedbackType}</p>
+                            <p><strong>Priority:</strong> {log.priority}</p>
+                        </li>
+                    </template>
+                </ul>
+            </template>
+            <template if:false={feedbackLogs.length}>
+                <p>No feedback submitted yet. Please submit a feedback form.</p>
+            </template>
+        </div>
+    </lightning-card>
+</template>

@@ -1,0 +1,17 @@
+<template>
+    <!-- Search Input -->
+    <lightning-input 
+        label="Search Product Name" 
+        value={strSearchProdName} 
+        onchange={handleProductName} 
+        placeholder="Enter product name" 
+        type="text">
+    </lightning-input>
+
+    <!-- Data Table to display search results -->
+    <lightning-datatable 
+        data={searchData} 
+        columns={columns} 
+        key-field="Id">
+    </lightning-datatable>
+</template>

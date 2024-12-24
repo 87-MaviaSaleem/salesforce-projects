@@ -1,0 +1,50 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 11-29-2024
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+-->
+<template>
+    <lightning-card title="Analytics Dashboard" icon-name="custom:custom63">
+        <!-- Loading Indicator -->
+        <template if:true={loading}>
+            <div class="slds-text-align_center slds-m-top_medium">
+                <lightning-spinner alternative-text="Loading data..." size="medium"></lightning-spinner>
+            </div>
+        </template>
+
+        <!-- Data Table -->
+        <template if:true={data.length}>
+            <lightning-datatable
+                key-field="Id"
+                data={data}
+                columns={columns}
+                hide-checkbox-column
+                class="slds-m-top_medium"
+            ></lightning-datatable>
+        </template>
+        <template if:false={data.length}>
+            <p class="slds-text-align_center slds-m-top_medium">No data available</p>
+        </template>
+
+        <!-- Pagination Controls -->
+        <div class="slds-m-top_medium slds-text-align_center">
+            <lightning-button 
+                label="Previous" 
+                onclick={handlePreviousPage} 
+                disabled={isPreviousDisabled}
+                class="slds-m-right_small"
+            ></lightning-button>
+
+            <lightning-button 
+                label="Next" 
+                onclick={handleNextPage} 
+                disabled={isLastPage}
+                class="slds-m-left_small"
+            ></lightning-button>
+
+            <p class="slds-m-top_medium">Page {currentPage}</p>
+        </div>
+    </lightning-card>
+</template>

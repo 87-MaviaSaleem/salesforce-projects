@@ -1,0 +1,104 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 12-04-2024
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+-->
+<template>
+  <!-- Main Form Section: Contact Us -->
+  <div class="form-container"> 
+      <div class="form-content">
+        <h2 class="section-title">Contact Us</h2>
+
+        <!-- Full Name Field -->
+        <lightning-input
+          label="Full Name"
+          value={name}
+          onchange={handleInputChange}
+          data-id="name"
+          class="input-field"
+          required
+          message-when-value-missing="Name is required"
+          variant="standard"
+        ></lightning-input>
+
+        <!-- Email Field -->
+        <lightning-input
+          label="Email Address"
+          value={email}
+          onchange={handleInputChange}
+          data-id="email"
+          class="input-field"
+          type="email"
+          required
+          message-when-value-missing="Email is required"
+          message-when-type-mismatch="Please enter a valid email"
+          variant="standard"
+        ></lightning-input>
+
+        <!-- Message Field -->
+        <lightning-textarea
+          label="Your Message"
+          value={message}
+          onchange={handleInputChange}
+          data-id="message"
+          class="input-field"
+          required
+          message-when-value-missing="Message is required"
+          variant="standard"
+        ></lightning-textarea>
+
+        <!-- Submit Button --> 
+          <lightning-button
+            label="Send Message"
+            variant="brand"
+            onclick={handleSubmit}
+            class="slds-align_absolute-center"
+            disabled={isSubmitDisabled}
+          ></lightning-button>
+      </div>
+
+      <!-- Error Messages -->
+      <template if:true={hasErrors}>
+        <div class="error-messages">
+          <p class="error-text">Please fix the errors in the form before submitting.</p>
+        </div>
+      </template> 
+  </div>
+
+  <!-- Additional Options Section -->
+  <div class="form-container additional-options-container"> 
+      <div class="interactive-container">
+        <!-- Dropdown Component -->
+        <lightning-combobox
+          label="Select an Option"
+          value={selectedOption}
+          options={options}
+          onchange={handleInputChange}
+          class="input-field"
+          data-id="dropdown"
+          variant="standard"
+        ></lightning-combobox>
+
+        <!-- Date Picker Component -->
+        <lightning-input
+          label="Select Date"
+          value={selectedDate}
+          type="date"
+          onchange={handleDateChange}
+          class="input-field"
+          data-id="date-picker"
+          variant="standard"
+        ></lightning-input>
+
+        <!-- Action Button -->
+        <lightning-button
+          label="Submit"
+          onclick={handleActionClick}
+          class="slds-align_absolute-center"
+          variant="neutral"
+        ></lightning-button>
+      </div>
+  </div>
+</template>

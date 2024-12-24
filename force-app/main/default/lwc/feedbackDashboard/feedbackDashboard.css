@@ -1,0 +1,22 @@
+.feedback-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem; /* Space between feedback items */
+}
+
+.feedback-item {
+    background: #f4f6f9; /* Subtle background for better contrast */
+    border: 1px solid #d8dde6; /* Border for structure */
+    border-radius: 0.5rem; /* Rounded corners for modern look */
+    padding: 1rem; /* Padding for content spacing */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+.feedback-item strong {
+    color: #0070d2; /* Salesforce blue for emphasis */
+}
+
+.feedback-item em {
+    font-size: 0.9rem;
+    color: #54698d; /* Gray tone for timestamps */
+}

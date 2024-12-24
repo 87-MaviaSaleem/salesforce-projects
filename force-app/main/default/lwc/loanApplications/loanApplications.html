@@ -1,0 +1,18 @@
+<template>
+    <lightning-card title="Loan Applications">
+        <!-- Check if there are loan applications -->
+        <template if:true={loanApplications}>
+            <!-- Lightning Datatable for displaying loan applications -->
+            <lightning-datatable
+                data={loanApplications}
+                columns={columns}
+                key-field="Id">
+            </lightning-datatable>
+        </template>
+
+        <!-- If no loan applications are found, show a message -->
+        <template if:false={loanApplications}>
+            <p>No loan applications found for this customer.</p>
+        </template>
+    </lightning-card>
+</template>

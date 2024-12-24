@@ -1,0 +1,20 @@
+<template>
+    <div class="search-container">
+        <input 
+            type="text" 
+            class="search-input" 
+            placeholder="Search..." 
+            onkeydown={handleKeyDown} 
+            onkeyup={handleKeyUp}
+        />
+        <ul class="suggestion-list">
+            <template if:true={suggestions}>
+                <template for:each={suggestions} for:item="suggestion">
+                    <li key={suggestion.Id} class="suggestion-item">
+                        {suggestion.Name}
+                    </li>
+                </template>
+            </template>
+        </ul>
+    </div>
+</template>

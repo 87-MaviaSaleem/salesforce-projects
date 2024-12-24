@@ -1,0 +1,12 @@
+<!-- CodeReviewDashboard.html -->
+<template>
+    <lightning-card title="Code Review Dashboard">
+        <div class="slds-p-around_medium">
+            <p><strong>Status:</strong> {reviewData.status}</p>
+            <p><strong>Comment:</strong> {reviewData.comment}</p>
+        </div>
+
+        <!-- Pass the comment to the child component -->
+        <c-code-review-section comment={reviewData.comment} onreviewstatuschange={handleReviewStatusChange}></c-code-review-section>
+    </lightning-card>
+</template>

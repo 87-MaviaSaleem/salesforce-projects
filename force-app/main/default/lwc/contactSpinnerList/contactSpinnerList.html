@@ -1,0 +1,50 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 11-26-2024
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+-->
+<template>
+    <template if:true={isLoading}>
+        <lightning-spinner size="large" alternative-text="Loading contacts..."></lightning-spinner>
+    </template>
+
+    <template if:false={isLoading}>
+        <lightning-input
+            label="Search Contacts"
+            value={rawSearchTerm} 
+           
+            onchange={handleSearchChange}
+            placeholder="Search by name">
+        </lightning-input>
+
+        <template if:true={contacts.length}>
+            <ul>
+                <template for:each={contacts} for:item="contact">
+                    <li key={contact.Id}>
+                        {contact.FirstName} {contact.LastName} - {contact.Email}
+                    </li>
+                </template>
+            </ul>
+        </template>
+        <template if:false={contacts.length}>
+            <p>No contacts found.</p>
+        </template>
+
+        <div class="pagination">
+            <lightning-button
+                label="Previous"
+                onclick={loadPreviousPage}
+                disabled={isPreviousDisabled}
+                class="slds-m-top_medium">
+            </lightning-button>
+            <lightning-button
+                label="Next"
+                onclick={loadNextPage}
+                disabled={isNextDisabled}
+                class="slds-m-top_medium">
+            </lightning-button>
+        </div>
+    </template>
+</template>

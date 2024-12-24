@@ -1,0 +1,150 @@
+/* dataImport.css */
+
+/* General styling for the card */
+.lightning-card {
+    background-color: #ffffff;  /* White background for a clean look */
+    border-radius: 15px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);  /* Subtle, larger shadow for depth */
+    padding: 25px;
+    max-width: 600px;  /* Limit the max width */
+    margin: 40px auto;  /* Center the card with space at the top */
+}
+
+/* Style the file input */
+.file-input {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1px solid #d8dde6;
+    border-radius: 8px;
+    background-color: #f7f7f7;
+    font-size: 16px;
+    color: #555;
+    transition: border 0.3s ease, background-color 0.3s ease;
+}
+
+/* Hover effect for file input */
+.file-input:hover {
+    border-color: #0070d2;
+    background-color: #f1f5fc;
+}
+
+/* Focus effect for file input */
+.file-input:focus {
+    outline: none;
+    border-color: #0070d2;
+    background-color: #f1f5fc;
+}
+
+/* Button styling */
+.lightning-button {
+    width: 100%;
+    padding: 12px 20px;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    text-align: center;  /* Center the text inside buttons */
+}
+
+/* Specific button colors */
+.lightning-button:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);  /* Slight lift effect */
+}
+
+/* Neutral button */
+.lightning-button[variant="neutral"] {
+    background-color: #f1f1f1;
+    color: #5f6368;
+}
+
+.lightning-button[variant="neutral"]:hover {
+    background-color: #e4e4e4;
+}
+
+/* Brand button */
+.lightning-button[variant="brand"] {
+    background-color: #0070d2;
+    color: white;
+}
+
+.lightning-button[variant="brand"]:hover {
+    background-color: #005bb5;
+}
+
+/* Style the progress ring container */
+.slds-progress-ring {
+    margin-top: 20px;
+}
+
+/* Flexbox for better layout and spacing */
+.slds-p-around_medium {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;  /* Space between each child element */
+}
+
+/* Title styling */
+lightning-card h1 {
+    font-size: 24px;
+    font-weight: 700;
+    color: #0070d2;
+    text-align: center;  /* Center the title */
+    margin-bottom: 20px;  /* Space between title and content */
+}
+
+/* Progress ring */
+.slds-progress-ring {
+    width: 70px;
+    height: 70px;
+    margin: 0 auto;
+}
+
+/* Adjust button layout in a grid for better spacing */
+.slds-p-around_medium > .lightning-button {
+    width: 48%;  /* Make buttons align side by side */
+}
+
+.lightning-button[variant="neutral"]:last-child {
+    margin-left: 4%;  /* Add space between cancel and upload button */
+}
+
+/* Cancel button adjustment */
+.lightning-button[variant="neutral"]:last-child {
+    background-color: #f5f5f5;
+    color: #333;
+}
+
+/* Card footer (buttons) */
+.slds-p-around_medium .lightning-button {
+    width: 100%;
+    max-width: 220px;
+    margin: 10px 0;
+}
+
+/* Styling for error or success toast */
+.slds-toast {
+    max-width: 400px;
+    margin-top: 10px;
+}
+
+/* Make the UI more responsive */
+@media (max-width: 768px) {
+    .lightning-card {
+        padding: 20px;
+    }
+
+    .file-input, .lightning-button {
+        width: 100%;
+    }
+
+    /* Stack buttons on small screens */
+    .slds-p-around_medium > .lightning-button {
+        width: 100%;
+        margin: 10px 0;
+    }
+}

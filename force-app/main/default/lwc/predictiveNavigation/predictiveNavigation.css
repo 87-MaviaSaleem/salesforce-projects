@@ -1,0 +1,132 @@
+/* Root component styling */
+:host {
+    display: block;
+    padding: 1rem;
+    background-color: #f9fafb; /* Neutral light background */
+    border: 1px solid #dcdfe4; /* Subtle border for visual separation */
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+}
+
+/* User ID Section */
+p {
+    font-size: 1rem;
+    color: #333; /* Dark text for readability */
+    margin-bottom: 0.5rem;
+}
+
+p strong {
+    color: #0070d2; /* Salesforce Blue for labels */
+}
+
+/* Styling the Card */
+.lightning-card {
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    border: 1px solid #e0e5eb;
+    border-radius: 0.5rem;
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+/* Title styling */
+.lightning-card .slds-card__header {
+    font-weight: bold;
+    font-size: 1.25rem;
+    color: #4b4f56;
+    border-bottom: 1px solid #e0e5eb;
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+/* Suggested Pages List */
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+li {
+    margin-bottom: 1rem;
+}
+
+/* Buttons for Suggestions */
+lightning-button {
+    display: inline-block;
+    width: 100%; /* Full width for better usability */
+    max-width: 300px; /* Limit width on larger screens */
+    padding: 0.75rem;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #ffffff;
+    background-color: #0070d2; /* Salesforce Blue */
+    border-radius: 0.25rem;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+lightning-button:hover {
+    background-color: #005fb2; /* Darker blue on hover */
+    transform: translateY(-2px); /* Subtle lift on hover */
+}
+
+lightning-button:active {
+    background-color: #003f7f; /* Even darker blue when active */
+    transform: translateY(0); /* Reset on click */
+}
+
+/* Error Message */
+.slds-text-color_error {
+    font-size: 0.875rem;
+    color: #d93025; /* Slightly lighter red for better contrast */
+    margin-top: 0.5rem;
+    text-align: center;
+    font-weight: bold;
+}
+
+/* Loading Spinner */
+lightning-spinner {
+    display: block;
+    margin: 2rem auto;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    :host {
+        padding: 0.5rem;
+    }
+
+    lightning-button {
+        font-size: 0.9rem;
+        padding: 0.5rem;
+    }
+}
+
+/* Fancy Hover Effects for Cards */
+.lightning-card:hover {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Elevated shadow */
+    transform: translateY(-2px); /* Slight lift */
+    transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+/* Improved List Item Layout */
+li {
+    display: flex;
+    align-items: center;
+}
+
+li::before {
+    content: '➔'; /* Arrow indicator for each list item */
+    margin-right: 0.5rem;
+    font-size: 1.2rem;
+    color: #0070d2;
+}
+
+/* Enhanced Padding for Card Content */
+.slds-m-around_medium {
+    padding: 1.5rem;
+    background: #ffffff;
+    border-radius: 0.5rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}

@@ -1,0 +1,34 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 11-26-2024
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+-->
+<template>
+    <lightning-card icon-name="standard:account" variant="base">
+      
+      <div>
+        <!-- Card Body  -->
+        <c-query-form onquerysubmit={handleQuerySubmit}></c-query-form>
+
+        <template if:true={queries.length}>
+            <ul>
+                <template for:each={queries} for:item="query">
+                    <li key={query.id}>
+                        <p><strong>Name:</strong> {query.name}</p>
+                        <p><strong>Email:</strong> {query.email}</p>
+                        <p><strong>Query:</strong> {query.query}</p>
+                        <p><strong>Priority:</strong> {query.priority}</p>
+                    </li>
+                </template>
+            </ul>
+        </template>
+
+        <template if:false={queries.length}>
+            <p>No queries logged yet. Please submit a query.</p>
+        </template>
+      </div>
+    </lightning-card>
+    
+</template>

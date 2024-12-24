@@ -1,0 +1,101 @@
+.spinner {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.dashboard-content {
+    margin-top: 20px;
+}
+
+.view-toggle {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.section-header {
+    font-size: 24px;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 20px;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.info-card {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.info-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.icon {
+    margin-right: 20px;
+    color: #2575fc;
+}
+
+.account-details p {
+    margin: 10px 0;
+    font-size: 16px;
+    color: #333;
+}
+
+.balance-text {
+    font-size: 18px;
+    font-weight: bold;
+    color: #27ae60;
+}
+
+.transaction-history {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.transaction-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.transaction-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    font-size: 16px;
+    color: #333;
+    transition: background-color 0.3s ease;
+}
+
+.transaction-item:hover {
+    background-color: #f0f4f8;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.transaction-icon {
+    margin-right: 10px;
+    color: #27ae60;
+}
+
+.action-button {
+    margin: 0 10px;
+    border-radius: 50px;
+    padding: 10px 20px;
+    transition: background-color 0.3s ease;
+}
+
+.action-button:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(38, 115, 252, 0.5);
+}

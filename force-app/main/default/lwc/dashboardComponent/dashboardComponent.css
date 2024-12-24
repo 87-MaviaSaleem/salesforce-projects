@@ -1,0 +1,24 @@
+/* dashboardComponent.css */
+lightning-card {
+    background-color: #f4f6f9;
+    padding: 10px;
+}
+
+ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+li {
+    margin: 10px 0;
+    font-size: 14px;
+}
+
+.slds-text-color_error {
+    color: red;
+}
+
+strong {
+    font-size: 16px;
+    font-weight: bold;
+}

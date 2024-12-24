@@ -1,0 +1,14 @@
+<template>
+    <!-- Button to trigger content loading -->
+    <lightning-button label="Load More" onclick={handleLoadMore}></lightning-button>
+
+    <!-- Loading spinner that shows while content is loading -->
+    <template if:true={isLoading}>
+        <div class="loading">Loading...</div>
+    </template>
+
+    <!-- Content that is dynamically loaded -->
+    <template if:true={showContent}>
+        <div class="content">Content Loaded</div>
+    </template>
+</template>

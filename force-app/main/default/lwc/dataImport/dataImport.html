@@ -1,0 +1,13 @@
+<!-- dataImport.html -->
+<template>
+    <lightning-card title="Data Import">
+        <div class="slds-p-around_medium">
+            <input type="file" class="file-input" onchange={handleFileChange} />
+            <lightning-button label="Upload File" onclick={handleUpload}></lightning-button>
+            <lightning-button label="Cancel Import" onclick={handleCancel}></lightning-button>
+            <div if:true={isImporting}>
+                <lightning-progress-ring value={progress} size="medium"></lightning-progress-ring>
+            </div>
+        </div>
+    </lightning-card>
+</template>

@@ -1,0 +1,46 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 11-27-2024
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+-->
+<template>
+    <!-- Loading Spinner: Displayed when data is being fetched -->
+    <lightning-spinner if:true={isLoading} alternative-text="Loading..."></lightning-spinner>
+
+    <!-- Display Claims List: Render the claims list only if data is available -->
+    <template if:true={claims}>
+        <ul>
+            <!-- Iterate over the list of claims -->
+            <template for:each={claims} for:item="claim">
+                <li key={claim.id} class="claim-item">
+                    <div class="slds-box">
+                        <!-- Display each claim's customer name and status -->
+                        <p><strong>{claim.customerName}</strong> - Status: {claim.status}</p>
+
+                        <!-- Approve and Reject buttons for each claim -->
+                        <button class="approve-btn" data-id={claim.id} data-action="approve" onclick={handleClaimAction}>Approve</button>
+                        <button class="reject-btn" data-id={claim.id} data-action="reject" onclick={handleClaimAction}>Reject</button>
+
+                        <!-- Lightning File Upload component for claim documents -->
+                        <lightning-file-upload
+                            label="Upload Claim Documents"
+                            name="fileUploader"
+                            accept=".pdf, .jpg, .jpeg, .png"
+                            record-id={claim.id} 
+                            onuploadfinished={handleFileUploadFinished}> <!-- Event handler for when upload is finished -->
+                        </lightning-file-upload>
+                    </div>
+                </li>
+            </template>
+        </ul>
+    </template>
+
+    <!-- Display an error message if there is one -->
+    <template if:true={errorMessage}>
+        <div class="slds-text-color_error">
+            <p>{errorMessage}</p>
+        </div>
+    </template>
+</template>

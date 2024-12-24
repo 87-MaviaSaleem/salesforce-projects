@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>56.0</apiVersion> <!-- Set to the API version you're using, here it's 56.0 -->
+    <isExposed>true</isExposed> <!-- Component is exposed to be used in Salesforce -->
+    <targets>
+        <target>lightning__RecordPage</target> <!-- Makes the component available on Record Pages -->
+        <target>lightning__AppPage</target> <!-- Makes the component available on App Pages -->
+    </targets>
+    <targetConfigs>
+        <targetConfig targets="lightning__RecordPage">
+            <objects>
+                <object>Opportunity</object> <!-- Component is available on Opportunity Record Pages -->
+                <object>Account</object> <!-- Component is available on Account Record Pages, add more if needed -->
+                <!-- Add more objects as necessary -->
+                <object>Lead</object>
+            </objects>
+        </targetConfig>
+    </targetConfigs>
+</LightningComponentBundle>

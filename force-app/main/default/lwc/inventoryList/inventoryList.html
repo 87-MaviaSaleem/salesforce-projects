@@ -1,0 +1,16 @@
+<template>
+    <template if:true={inventoryData}>
+        <template for:each={inventoryData} for:item="item">
+            <div key={item.Id} class="inventory-item">
+                <h3>{item.ItemName__c}</h3>
+                <p>Stock Level: {item.StockLevel__c}</p>
+                <lightning-input type="number" label="Update Stock" onchange={handleInputChange}
+                                 data-id={item.Id}></lightning-input>
+                <lightning-button label="Update" data-id={item.Id} onclick={updateStock}></lightning-button>
+            </div>
+        </template>
+    </template>
+    <template if:true={error}>
+        <p class="error-message">{error}</p>
+    </template>
+</template>

@@ -1,0 +1,50 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 12-02-2024
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+-->
+<template>
+    <lightning-card title="Shipment Tracker" icon-name="utility:truck">
+        <!-- Input field for tracking number -->
+        <div class="slds-m-around_medium">
+            <lightning-input
+                label="Enter Tracking Number"
+                value={trackingNumber}
+                onchange={handleInputChange}
+                placeholder="Tracking Number"
+            ></lightning-input>
+
+            <!-- Button to fetch shipment data -->
+            <lightning-button
+                class="slds-m-top_small"
+                label="Track Shipment"
+                onclick={fetchShipmentData}
+                variant="brand"
+            ></lightning-button>
+        </div>
+
+        <!-- Loading spinner while data is being fetched -->
+        <template if:true={isLoading}>
+            <div class="slds-p-around_medium">
+                <lightning-spinner alternative-text="Loading..." size="medium"></lightning-spinner>
+            </div>
+        </template>
+
+        <!-- Display shipment data if available -->
+        <template if:true={shipmentData}>
+            <div class="slds-m-around_medium">
+                <p><strong>Status:</strong> {shipmentData.Status__c}</p>
+                <p><strong>Expected Delivery Date:</strong> {shipmentData.Expected_Delivery_Date__c}</p>
+            </div>
+        </template>
+
+        <!-- Display error message if data retrieval fails -->
+        <template if:true={errorMessage}>
+            <div class="slds-text-color_error slds-m-around_medium">
+                <p>{errorMessage}</p>
+            </div>
+        </template>
+    </lightning-card>
+</template>

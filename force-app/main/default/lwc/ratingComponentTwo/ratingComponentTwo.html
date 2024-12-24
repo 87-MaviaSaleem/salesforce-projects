@@ -1,0 +1,61 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 12-10-2024
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+-->
+<template>
+    <!-- Rating Card Container -->
+    <div class="rating-card">
+        <!-- Heading -->
+        <p class="heading">Help Us Improve: Share Your Experience</p>
+
+        <!-- Product Selection Section -->
+        <div class="product-selection">
+            <b><label for="product">Choose a Service or Product:</label></b>
+           <div>
+            <select id="product" name="product" onchange={handleProductChange}>
+                <!-- Product Options -->
+                <option value="" disabled selected>--Select--</option>
+                <option value="Product 1">Vivo</option>
+                <option value="Product 2">Dell</option>
+                <option value="Product 3">Apple</option>
+            </select>
+           </div>
+        </div>
+
+        <!-- Star Rating Section -->
+        <template if:true={showRatingStars}>
+            <div class="stars" onclick={handleRating} onmouseover={handleHover} onmouseleave={handleMouseLeave}>
+                <!-- Star icons -->
+                <span data-value="1" class="star">&#9733;</span>
+                <span data-value="2" class="star">&#9733;</span>
+                <span data-value="3" class="star">&#9733;</span>
+                <span data-value="4" class="star">&#9733;</span>
+                <span data-value="5" class="star">&#9733;</span>
+            </div>
+        </template>
+
+        <!-- Feedback Section (Visible after rating) -->
+        <template if:true={isFeedbackVisible}>
+            <div class="feedback-section">
+                <label for="user-feedback">Your Feedback:</label>
+                <textarea id="user-feedback" name="user-feedback" 
+                          placeholder="Share your feedback ..." 
+                          oninput={handleFeedbackChange}></textarea>
+            </div>
+        </template> 
+
+        <!-- Feedback Message Display -->
+        <template if:true={feedbackMessage}>
+            <p class="feedback {isFeedbackSuccess ? 'success' : 'error'}">{feedbackMessage}</p>
+        </template>
+
+        <!-- Buttons (Clear and Submit) -->
+        <div class="buttons">
+            <button class="reset-button custom-button" onclick={resetRating} disabled={isResetDisabled}>Clear</button>
+            <button class="send-button custom-button slds-m-left_x-small" onclick={sendFeedback} disabled={isSendDisabled}>Submit</button>
+        </div>
+    </div>
+</template>

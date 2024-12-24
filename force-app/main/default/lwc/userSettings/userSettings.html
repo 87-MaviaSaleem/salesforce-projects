@@ -1,0 +1,43 @@
+<!-- userSettings.html -->
+<template>
+    <lightning-card title="User Settings" icon-name="custom:custom63">
+        <div class="slds-p-around_medium">
+            <!-- Enable Notifications -->
+            <lightning-input 
+                type="checkbox" 
+                label="Enable Notifications" 
+                checked={notificationSetting} 
+                onchange={handleNotificationChange}>
+            </lightning-input>
+
+            <!-- Data Visibility Options -->
+            <lightning-radio-group 
+                label="Data Visibility" 
+                options={visibilityOptions} 
+                value={visibility} 
+                onchange={handleVisibilityChange}>
+            </lightning-radio-group>
+
+            <!-- Save Button -->
+            <div class="slds-m-top_medium">
+                <lightning-button 
+                    label="Save Settings" 
+                    variant="brand" 
+                    onclick={handleSaveSettings}>
+                </lightning-button>
+            </div>
+
+            <!-- Success or Error Message -->
+            <template if:true={isSaveSuccessful}>
+                <div class="slds-text-color_success slds-m-top_small">
+                    Settings saved successfully!
+                </div>
+            </template>
+            <template if:true={hasError}>
+                <div class="slds-text-color_error slds-m-top_small">
+                    Error saving settings. Please try again.
+                </div>
+            </template>
+        </div>
+    </lightning-card>
+</template>

@@ -1,0 +1,54 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 11-26-2024
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+-->
+<template>
+    <lightning-card title="Submit Feedback">
+        <div class="slds-p-around_medium">
+            <!-- User Name -->
+            <lightning-input 
+                label="Name" 
+                value={name} 
+                onchange={handleInputChange} 
+                name="name">
+            </lightning-input>
+
+            <!-- Email Input -->
+            <lightning-input 
+                label="Email" 
+                value={email} 
+                onchange={handleInputChange} 
+                name="email" 
+                type="email">
+            </lightning-input>
+
+            <!-- Feedback Type (Bug, Feature, Complaint) -->
+            <lightning-combobox 
+                label="Feedback Type" 
+                value={feedbackType} 
+                onchange={handleInputChange} 
+                name="feedbackType"
+                options={feedbackTypeOptions}>
+            </lightning-combobox>
+
+            <!-- Priority Input (Low, Medium, High) -->
+            <lightning-combobox 
+                label="Priority" 
+                value={priority} 
+                onchange={handleInputChange} 
+                name="priority"
+                options={priorityOptions}>
+            </lightning-combobox>
+
+            <!-- Submit Button -->
+            <lightning-button 
+                label="Submit Feedback" 
+                variant="brand" 
+                onclick={handleSubmit}>
+            </lightning-button>
+        </div>
+    </lightning-card>
+</template>

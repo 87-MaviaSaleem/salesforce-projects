@@ -1,0 +1,16 @@
+<template>
+    <template if:true={isDataAvailable}>
+        <lightning-card >
+           <p>Data loaded successfully!</p>
+        <ul>
+            <template for:each={items} for:item="item">
+                <li key={item}>{item}</li>
+            </template>
+        </ul>
+        </lightning-card>
+       
+    </template>
+    <template if:false={isDataAvailable}>
+        <p>No data available.</p>
+    </template>
+</template>

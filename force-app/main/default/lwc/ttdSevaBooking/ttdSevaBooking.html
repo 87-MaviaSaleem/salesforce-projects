@@ -1,0 +1,38 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 11-28-2024
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+-->
+<template>
+    <!-- Display an error message if it exists -->
+    <template if:true={errorMessage}>
+        <div class="slds-text-color_error">
+            <p>{errorMessage}</p>
+        </div>
+    </template>
+
+    <!-- Display the list of sevas if available -->
+    <template if:true={sevas}>
+        <ul>
+            <template for:each={sevas} for:item="seva">
+                <li key={seva.id} class="seva-item">
+                    <div class="slds-box">
+                        <!-- Seva details -->
+                        <p><strong>{seva.Name}</strong> - {seva.Price__c}</p>
+                        <p>{seva.Description__c}</p>
+                        
+                        <!-- Book Seva button -->
+                        <button 
+                            class="slds-button slds-button_brand" 
+                            data-id={seva.id} 
+                            onclick={handleBookSeva}>
+                            Book Seva
+                        </button>
+                    </div>
+                </li>
+            </template>
+        </ul>
+    </template>
+</template>

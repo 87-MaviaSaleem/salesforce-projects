@@ -1,0 +1,35 @@
+<template>
+    <lightning-card title="Account and Related Contacts">
+        <!-- Loading spinner while data is being fetched -->
+        <template if:true={isLoading}>
+            <lightning-spinner alternative-text="Loading"></lightning-spinner>
+        </template>
+
+        <!-- Error message if an error occurs during data fetch -->
+        <template if:true={error}>
+            <p class="slds-text-color_error">{error}</p>
+        </template>
+
+        <!-- Account and related contacts display -->
+        <template if:true={accountData.account}>
+            <div class="slds-m-bottom_medium">
+                <h2>{accountData.account.Name}</h2>
+                <p><strong>Industry:</strong> {accountData.account.Industry}</p>
+                <p><strong>Phone:</strong> {accountData.account.Phone}</p>
+                <p><strong>Website:</strong> {accountData.account.Website}</p>
+            </div>
+
+            <h3>Contacts:</h3>
+            <template if:true={accountData.contacts}>
+                <lightning-datatable
+                    data={accountData.contacts}
+                    columns={columns}
+                    key-field="Id">
+                </lightning-datatable>
+            </template>
+            <template if:false={accountData.contacts}>
+                <p>No Contacts Found</p>
+            </template>
+        </template>
+    </lightning-card>
+</template>

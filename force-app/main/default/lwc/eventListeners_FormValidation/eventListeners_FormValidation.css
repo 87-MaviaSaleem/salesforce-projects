@@ -1,0 +1,17 @@
+.form-container {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+
+.email-input {
+    margin-top: 15px;
+}
+
+.lightning-input input {
+    transition: border-color 0.2s ease-in-out;
+}

@@ -1,0 +1,8 @@
+<template>
+    <lightning-card title="Event Propagation Example" icon-name="utility:event">
+        <div class="slds-m-around_medium parent-container" onclick={handleParentClick}>
+            <p>Parent Component: Clicks on this area will log an event if propagation is allowed.</p>
+            <c-event-child></c-event-child>
+        </div>
+    </lightning-card>
+</template>

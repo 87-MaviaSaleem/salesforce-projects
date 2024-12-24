@@ -1,0 +1,51 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 12-01-2024
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+-->
+<template>
+    <lightning-card title="User Profile Preferences">
+        <div class="slds-p-around_medium">
+            <!-- Theme Selection -->
+            <lightning-combobox
+                label="Select Theme"
+                value={theme}
+                options={themeOptions}
+                onchange={handleThemeChange}>
+            </lightning-combobox>
+
+            <!-- Language Selection -->
+            <lightning-combobox
+                label="Select Language"
+                value={language}
+                options={languageOptions}
+                onchange={handleLanguageChange}>
+            </lightning-combobox>
+
+            <!-- Notification Settings -->
+            <lightning-checkbox-group
+                label="Notification Preferences"
+                options={notificationOptions}
+                value={notificationPreferences}
+                onchange={handleNotificationChange}>
+            </lightning-checkbox-group>
+
+            <!-- Profile Picture Upload -->
+            <lightning-input type="file" label="Upload Profile Picture" onchange={handleProfilePictureUpload}></lightning-input>
+
+            <!-- Profile Selection -->
+            <lightning-combobox
+                label="Select User Profile"
+                value={selectedProfile}
+                options={profileOptions}
+                onchange={handleProfileSelection}>
+            </lightning-combobox>
+
+            <div if:true={profilePicture}>
+                <img src={profilePicture} alt="Profile Picture" class="profile-image"/>
+            </div>
+        </div>
+    </lightning-card>
+</template>

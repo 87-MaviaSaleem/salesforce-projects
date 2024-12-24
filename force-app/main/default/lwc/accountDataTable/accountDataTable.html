@@ -1,0 +1,14 @@
+<template>
+    <!-- Wrapper card with title and icon for the account list -->
+    <lightning-card title="Accounts Data Table">
+        <lightning-datatable
+            key-field="Id"
+            data={accounts}
+            columns={columns}
+            sorted-by={sortedBy}
+            sorted-direction={sortedDirection}
+            onsort={handleSort}
+        >
+        </lightning-datatable>
+    </lightning-card>
+</template>

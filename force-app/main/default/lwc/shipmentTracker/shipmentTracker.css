@@ -1,0 +1,100 @@
+/* Container for the Lightning Card */
+.slds-card {
+    background-color: #f4f6f9; /* Light gray background */
+    border-radius: 8px; /* Rounded corners */
+    padding: 20px;
+}
+
+/* Header for the Lightning Card */
+.slds-card__header {
+    background-color: #0066cc; /* Blue background for header */
+    color: #ffffff; /* White text */
+    font-size: 1.25rem; /* Slightly larger text */
+    text-align: center;
+    padding: 15px;
+}
+
+/* Title styling inside the card */
+.slds-card__header-title {
+    font-weight: bold; /* Make title bold */
+}
+
+/* Input field styling */
+.slds-input {
+    border: 2px solid #0066cc; /* Blue border */
+    border-radius: 5px; /* Rounded corners */
+    padding: 10px;
+    margin-top: 15px;
+    font-size: 1rem;
+    color: #333333; /* Dark text color */
+}
+
+/* Button styling */
+.slds-button {
+    background-color: #28a745; /* Green background */
+    color: #ffffff; /* White text */
+    font-size: 1rem;
+    padding: 12px 20px;
+    border-radius: 5px;
+    margin-top: 15px;
+    transition: background-color 0.3s ease;
+}
+
+.slds-button:hover {
+    background-color: #218838; /* Darker green on hover */
+}
+
+/* Loading spinner container */
+.slds-p-around_medium {
+    text-align: center;
+}
+
+/* Styling for the status information */
+.slds-text-heading_medium {
+    font-weight: bold;
+    color: #0066cc; /* Blue text for status */
+}
+
+/* Shipment data container */
+.slds-m-around_medium {
+    padding: 10px;
+    border-radius: 8px;
+    background-color: #e9f7ff; /* Light blue background */
+    margin-top: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Light shadow for depth */
+}
+
+/* Error message styling */
+.slds-text-color_error {
+    color: #e74c3c; /* Red color for error messages */
+    font-weight: bold;
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* Success Toast Styling */
+.slds-notify_toast.slds-theme_success {
+    background-color: #28a745 !important; /* Green background for success */
+    color: #ffffff; /* White text */
+}
+
+.slds-notify_toast.slds-theme_error {
+    background-color: #e74c3c !important; /* Red background for errors */
+    color: #ffffff; /* White text */
+}
+
+.slds-notify_toast.slds-theme_warning {
+    background-color: #f39c12 !important; /* Yellow background for warnings */
+    color: #ffffff; /* White text */
+}
+
+/* Custom spinner styling */
+.slds-spinner_medium {
+    border-color: #0066cc; /* Blue spinner */
+}
+
+/* Success/Failure message sections */
+.slds-m-top_medium {
+    margin-top: 20px;
+    text-align: center;
+}

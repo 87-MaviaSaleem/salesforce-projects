@@ -1,0 +1,55 @@
+/* Center the card content and apply padding */
+.slds-card {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Style the combobox elements for Industry and Sort By filters */
+.slds-combobox {
+    margin-bottom: 20px;
+}
+
+/* Style the data table */
+lightning-datatable {
+    margin-top: 20px;
+    border: 1px solid #d8dde6;
+    border-radius: 4px;
+    background-color: #f3f3f3;
+}
+
+/* Styling for the pagination buttons */
+.slds-text-align_center {
+    margin-top: 20px;
+}
+
+/* Add padding and margin to error message */
+.slds-text-color_error {
+    padding: 15px;
+    margin-bottom: 15px;
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+    border-radius: 4px;
+}
+
+/* Styling for the buttons */
+lightning-button {
+    margin: 0 10px;
+}
+
+/* Specific style for previous and next button to add spacing */
+lightning-button[disabled] {
+    opacity: 0.5;
+}
+
+/* Style the card title */
+lightning-card {
+    margin-bottom: 20px;
+    background-color: #ffffff;
+    border-radius: 6px;
+}
+
+/* Adjust margins for the inputs */
+.slds-p-horizontal_medium {
+    margin-bottom: 15px;
+}

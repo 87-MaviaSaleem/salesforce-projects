@@ -1,0 +1,21 @@
+<template>
+    <lightning-card title="Keyboard Action Events" icon-name="utility:search">
+        <div class="slds-m-around_medium">
+            <lightning-input 
+                type="text" 
+                label="Search" 
+                onchange={handleInputChange} 
+                onkeyup={handleKeyUp}
+                placeholder="Type to search...">
+            </lightning-input>
+        </div>
+
+        <template if:true={filteredResults.length}>
+            <ul class="slds-list_dotted">
+                <template for:each={filteredResults} for:item="item">
+                    <li key={item.id}>{item.name}</li>
+                </template>
+            </ul>
+        </template>
+    </lightning-card>
+</template>

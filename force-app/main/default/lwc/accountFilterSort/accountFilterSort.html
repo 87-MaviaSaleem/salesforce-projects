@@ -1,0 +1,41 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 11-22-2024
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+-->
+<template>
+    <!-- Create a Lightning Card component with a title and icon -->
+    <lightning-card title="Account Management" icon-name="standard:account">
+        <div class="slds-m-around_medium">
+            <!-- Search Input -->
+            <lightning-input 
+                type="text" 
+                label="Search Accounts by Name" 
+                placeholder="Enter Account Name"
+                onchange={handleSearch}>
+            </lightning-input>
+
+            <!-- Industry Filter -->
+            <lightning-combobox 
+                label="Filter by Industry" 
+                placeholder="Select Industry"
+                value={selectedIndustry}
+                options={industryOptions}
+                onchange={handleIndustryFilter}>
+            </lightning-combobox>
+        </div>
+
+        <!-- Data Table to Display Accounts -->
+        <lightning-datatable
+            key-field="Id"
+            columns={columns}
+            data={accounts}
+            hide-checkbox-column
+            sorted-direction={sortDirection}
+            sorted-by={sortedBy}
+            onsort={onHandleSort}>
+        </lightning-datatable>
+    </lightning-card>
+</template>

@@ -1,0 +1,11 @@
+<template>
+    <div class="pagination-container">
+        <button class="slds-button slds-button_neutral" onclick={handlePrevious} disabled={currentPage}>
+            Previous
+        </button>
+        <span>Page {currentPage} of {totalPages}</span>
+        <button class="slds-button slds-button_neutral" onclick={handleNext} disabled={currentPage}>
+            Next
+        </button>
+    </div>
+</template>

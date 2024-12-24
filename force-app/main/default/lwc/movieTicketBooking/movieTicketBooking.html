@@ -1,0 +1,64 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 11-26-2024
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+-->
+<template>
+    <lightning-card title="Movie Ticket Booking">
+        <div class="slds-p-around_medium">
+            <lightning-combobox
+                label="Select Movie"
+                value={selectedMovieId}
+                options={movieOptions}
+                onchange={handleMovieSelection}>
+            </lightning-combobox>
+
+            <lightning-input
+                label="Number of Tickets"
+                type="number"
+                value={numberOfTickets}
+                onchange={handleInputChange}
+                name="numberOfTickets">
+            </lightning-input>
+
+            <lightning-input
+                label="Show Time"
+                type="datetime-local"
+                value={showTime}
+                onchange={handleInputChange}
+                name="showTime">
+            </lightning-input>
+
+            <lightning-button
+                label="Book Ticket"
+                variant="brand"
+                onclick={handleBookTicket}>
+            </lightning-button>
+
+            <template if:true={bookingStatus}>
+                <p>{bookingStatus}</p>
+            </template>
+
+            <template if:true={bookingDetails}>
+                <p><strong>Movie:</strong> {bookingDetails.Movie__r.Name}</p>
+                <p><strong>Number of Tickets:</strong> {bookingDetails.Number_of_Tickets__c}</p>
+                <p><strong>Show Time:</strong> {bookingDetails.Show_Time__c}</p>
+                <p><strong>Status:</strong> {bookingDetails.Status__c}</p>
+
+                <!-- Update and Cancel Booking -->
+                <lightning-button
+                    label="Confirm Booking"
+                    onclick={handleUpdateStatus}>
+                </lightning-button>
+
+                <lightning-button
+                    label="Cancel Booking"
+                    variant="destructive"
+                    onclick={handleCancelBooking}>
+                </lightning-button>
+            </template>
+        </div>
+    </lightning-card>
+</template>

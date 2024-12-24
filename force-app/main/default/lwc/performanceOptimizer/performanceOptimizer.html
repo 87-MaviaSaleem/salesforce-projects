@@ -1,0 +1,43 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 12-06-2024
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+-->
+<template>
+    <div class="product-list">
+        <!-- Render products dynamically -->
+        <template for:each={productList} for:item="product">
+            <div key={product.id} class="product-item" data-id={product.id} 
+                onmouseenter={handleMouseEvent} onmouseleave={handleMouseEvent}>
+                
+                <!-- Product Image -->
+                <img class="product-image" src={product.imageUrl} alt={product.name} />
+
+                <!-- Product Name -->
+                <div class="product-name">{product.name}</div>
+                
+                <div class="product-details">
+                    <button class="view-details-btn" data-id={product.id} onclick={openModal}>View Details</button>
+                </div>
+            </div>
+        </template>
+    </div>
+
+    <!-- Modal for Product Details -->
+    <template if:true={isModalOpen}>
+        <section class="modal-overlay" onclick={closeModal}>
+            <div class="modal" onclick={stopPropagation}>
+                <div class="modal-header">
+                    <h2>{selectedProduct.name}</h2>
+                    <button class="close-btn" onclick={closeModal}>&times;</button>
+                </div>
+                <div class="modal-body">
+                    <img class="modal-image" src={selectedProduct.imageUrl} alt={selectedProduct.name} />
+                    <p>{selectedProduct.description}</p>
+                </div>
+            </div>
+        </section>
+    </template>
+</template>

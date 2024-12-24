@@ -1,0 +1,20 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 12-10-2024
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+-->
+<template>
+    <lightning-card title="Filter Products" icon-name="utility:filterList">
+        <div class="slds-p-around_medium">
+            <lightning-input
+                type="text"
+                label="Filter By Product Name"
+                placeholder="Enter product name..."
+                onchange={handleFilterChange}
+                class="filter-input"
+            ></lightning-input>
+        </div>
+    </lightning-card>
+</template>

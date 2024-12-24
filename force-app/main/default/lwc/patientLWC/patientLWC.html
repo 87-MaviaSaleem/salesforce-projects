@@ -1,0 +1,52 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 11-29-2024
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+-->
+<template>
+    <!-- Wrapper for the patient list with an onscroll event to handle lazy loading -->
+    <div class="patient-list" onscroll={handleScroll}>
+        
+        <!-- Check if the patients list is available -->
+        <template if:true={patients}>
+            
+            <!-- Loop through the patients array -->
+            <template for:each={patients} for:item="patient">
+                <!-- Key attribute ensures unique identification for each patient -->
+                <div key={patient.patient.Id} class="patient-card">
+                    
+                    <!-- Display patient details -->
+                    <h3>{patient.patient.Name}</h3>
+                    <p>Age: {patient.patient.Age__c}</p>
+                    <p>Last Visit: {patient.patient.LastVisitDate__c}</p>
+                    <p>Department: {patient.patient.Department__c}</p>
+                    
+                    <!-- Section for recent appointments -->
+                    <h4>Recent Appointments</h4>
+                    <ul>
+                        <!-- Loop through the appointments array for the current patient -->
+                        <template for:each={patient.appointments} for:item="appointment">
+                            <!-- Key attribute ensures unique identification for each appointment -->
+                            <li key={appointment.Id}>
+                                <!-- Display appointment date and type -->
+                                {appointment.Appointment_Date__c} - {appointment.Appointment_Type__c}
+                            </li>
+                        </template>
+                    </ul>
+                </div>
+            </template>
+        </template>
+
+        <!-- Show a loading spinner when data is being loaded -->
+        <template if:true={isLoading}>
+            <div class="loading-spinner">Loading...</div>
+        </template>
+
+        <!-- Message indicating the end of the list -->
+        <template if:false={hasMoreData}>
+            <p class="end-of-list">No more records to display.</p>
+        </template>
+    </div>
+</template>

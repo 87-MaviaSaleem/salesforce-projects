@@ -1,0 +1,15 @@
+<!-- CodeReviewSection.html -->
+<template>
+    <lightning-card title="Code Review Section">
+        <div class="slds-p-around_medium">
+            <lightning-input label="Comment" value={comment} onchange={handleCommentChange}></lightning-input>
+            <div class="slds-m-top_medium">
+                <lightning-button label="Approve" onclick={handleApprove} class="slds-m-right_small"></lightning-button>
+                <lightning-button label="Reject" onclick={handleReject}></lightning-button>
+            </div>
+            <template if:true={errorMessage}>
+                <p class="slds-text-color_error">{errorMessage}</p>
+            </template>
+        </div>
+    </lightning-card>
+</template>

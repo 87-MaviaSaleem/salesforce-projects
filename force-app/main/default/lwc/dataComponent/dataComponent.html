@@ -1,0 +1,9 @@
+<template>
+    <lightning-card>
+        <div class="highlight">Fetched Items:</div>
+    <template for:each={items} for:item="item">
+        <p key={item}>{item}</p>
+    </template>
+
+    </lightning-card>
+</template>

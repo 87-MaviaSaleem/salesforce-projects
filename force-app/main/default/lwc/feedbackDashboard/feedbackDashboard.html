@@ -1,0 +1,31 @@
+<template>
+    <lightning-card title="Feedback Dashboard" icon-name="utility:feedback">
+        <div class="slds-p-horizontal_medium slds-p-vertical_small">
+            <!-- Display error message if there's an error -->
+            <template if:true={errorMessage}>
+                <p class="slds-text-color_error">{errorMessage}</p>
+            </template>
+
+            <!-- Display feedback list -->
+            <template if:false={errorMessage}>
+                <template if:true={feedbackList.length}>
+                    <div class="feedback-list">
+                        <template for:each={feedbackList} for:item="feedback">
+                            <div key={feedback.Id} class="feedback-item slds-box slds-box_x-small slds-m-bottom_small">
+                                <p><strong>User:</strong> {feedback.UserId__c}</p>
+                                <p><strong>Type:</strong> {feedback.FeedbackType__c}</p>
+                                <p><strong>Feedback:</strong> {feedback.FeedbackContent__c}</p>
+                                <p class="slds-text-color_weak"><em>{feedback.Timestamp__c}</em></p>
+                            </div>
+                        </template>
+                    </div>
+                </template>
+
+                <!-- Display message when no feedback is available -->
+                <template if:false={feedbackList.length}>
+                    <p class="slds-text-align_center">No feedback available.</p>
+                </template>
+            </template>
+        </div>
+    </lightning-card>
+</template>

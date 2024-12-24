@@ -1,0 +1,73 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 12-02-2024
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+-->
+<template>
+    <div class="form-container">
+        <!-- Centered Heading -->
+        <div class="form-header">
+            <h2>Booking Form</h2>
+        </div>
+        <!-- Travel Date Input -->
+        <div class="form-group">
+            <lightning-input
+                type="date"
+                label="Travel Date"
+                value={travelDate}
+                onchange={handleInputChange}
+                onfocus={showFieldTips}
+                data-field="travelDate"
+                class={travelDateClass}>
+            </lightning-input>
+
+            <template if:true={travelDateError}>
+                <p class="error-message">{travelDateError}</p>
+            </template>
+            <template if:true={travelDateSuccess}>
+                <p class="success-message">Travel date is valid!</p>
+            </template>
+        </div>
+
+        <!-- Destination Dropdown -->
+        <div class="form-group">
+            <lightning-combobox
+                label="Destination"
+                placeholder="Select a destination"
+                options={destinationOptions}
+                value={destination}
+                onchange={handleInputChange}
+                onfocus={showFieldTips}
+                data-field="destination"
+                class={destinationClass}>
+            </lightning-combobox>
+
+            <template if:true={destinationError}>
+                <p class="error-message">{destinationError}</p>
+            </template>
+            <template if:true={destinationSuccess}>
+                <p class="success-message">Destination is valid!</p>
+            </template>
+        </div>
+
+        <!-- Submit Button -->
+        <div class="form-group button-container">
+            <lightning-button
+                label="Submit"
+                variant="brand"
+                onclick={handleSubmit}
+                disabled={isSubmitDisabled}>
+            </lightning-button>
+        </div>
+
+        <!-- Success/Failure Toast Message -->
+        <template if:true={showToast}>
+            <div class={toastClass}>
+                {toastMessage}
+            </div>
+        </template>
+    </div>
+
+</template>

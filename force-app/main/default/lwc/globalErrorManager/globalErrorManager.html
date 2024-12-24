@@ -1,0 +1,6 @@
+<template>
+  <div class="error-overlay" if:true={hasError}>
+    <c-error-notification message={errorMessage} onclose={clearError}></c-error-notification>
+  </div>
+  <slot></slot>
+</template>

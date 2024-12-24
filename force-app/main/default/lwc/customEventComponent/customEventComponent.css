@@ -1,0 +1,34 @@
+/* Container for the entire component */
+.component-container {
+    padding: 1rem; /* Adds space inside the container for a clean layout */
+    border: 1px solid #ccc; /* Light border around the container */
+    border-radius: 5px; /* Rounded corners for a modern look */
+    background-color: #fdfdfd; /* Light background color for the container */
+    max-width: 600px; /* Sets the maximum width of the container */
+    margin: 0 auto; /* Centers the component horizontally */
+    text-align: center; /* Centers the text inside the container */
+}
+
+/* Input section where the message and priority are entered */
+.input-section {
+    margin-top: 1rem; /* Adds space above the input section */
+    margin-bottom: 1rem; /* Adds space below the input section to create a gap between the buttons */
+}
+
+/* Styling for all the buttons in the component */
+.queue-button, .process-button, .remove-button {
+    margin-top: 0.5rem; /* Adds space above the buttons */
+    margin-right: 0.5rem; /* Adds space between buttons when they appear next to each other */
+    background-color: #0070d2; /* Sets a blue background for the buttons */
+    color: #fff; /* White text on the buttons */
+}
+
+/* Additional spacing for the "Add to Queue" button */
+.queue-button {
+    margin-bottom: 1rem; /* Adds space below the "Add to Queue" button */
+}
+
+/* Hover effect for the buttons to give visual feedback */
+.queue-button:hover, .process-button:hover, .remove-button:hover {
+    background-color: #005bb5; /* Darker blue when hovered */
+}

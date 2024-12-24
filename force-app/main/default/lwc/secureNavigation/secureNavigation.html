@@ -1,0 +1,42 @@
+<template>
+    <lightning-card title="Navigation" icon-name="utility:app">
+        <div class="slds-p-horizontal_medium slds-p-vertical_small">
+            <!-- Navigation Buttons Container -->
+            <div class="button-container">
+                <!-- Navigation for 'Access_Secure_Page' permission -->
+                <template if:true={canAccessSecurePage}>
+                    <lightning-button
+                        label="Access Secure Page"
+                        class="button-style"
+                        onclick={navigateToSecurePage}>
+                    </lightning-button>
+                </template>
+
+                <!-- Navigation for 'Access_Admin_Page' permission -->
+                <template if:true={canAccessAdminPage}>
+                    <lightning-button
+                        label="Access Admin Page"
+                        class="button-style"
+                        onclick={navigateToAdminPage}>
+                    </lightning-button>
+                </template>
+
+                <!-- Navigation for 'Access_Custom_Page' permission -->
+                <template if:true={canAccessCustomPage}>
+                    <lightning-button
+                        label="Access Custom Page"
+                        class="button-style"
+                        onclick={navigateToCustomPage}>
+                    </lightning-button>
+                </template>
+            </div>
+
+            <!-- Message if the user has no access -->
+            <template if:false={hasAnyAccess}>
+                <p class="no-access-message">
+                    You do not have permission to access any pages.
+                </p>
+            </template>
+        </div>
+    </lightning-card>
+</template>

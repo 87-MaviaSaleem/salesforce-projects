@@ -1,0 +1,22 @@
+<template>
+    <lightning-card icon-name="standard:account" variant="base">
+      
+      <div>
+        <!-- Card Body  -->
+        <h1>Lazy Loading Example</h1>
+        <button onclick={loadLazyContent}>Load Lazy Content</button>
+        <template if:true={isContentLoaded}>
+            <div class="lazy-load">This is a lazily loaded content!</div>
+        </template>
+
+        <h2>Performance Review</h2>
+        <lightning-record-edit-form object-api-name="Performance_Review__c">
+            <lightning-input-field field-name="Metric_Name__c"></lightning-input-field>
+            <lightning-input-field field-name="Before_Lazy_Load__c"></lightning-input-field>
+            <lightning-input-field field-name="After_Lazy_Load__c"></lightning-input-field>
+            <lightning-input-field field-name="User_Feedback__c"></lightning-input-field>
+            <lightning-button class="slds-m-top_small" variant="brand" type="submit" label="Submit"></lightning-button>
+        </lightning-record-edit-form>
+      </div>
+    </lightning-card>
+</template>

@@ -1,0 +1,33 @@
+<template>
+  <div class="content-container">
+    <h2>Content Management</h2>
+
+    <!-- Article Form -->
+    <div class="form">
+      <input
+        type="text"
+        placeholder="Enter Article Title"
+        value={title}
+        onchange={handleTitleChange}
+      />
+      <textarea
+        placeholder="Enter Article Content"
+        value={content}
+        onchange={handleContentChange}
+      ></textarea>
+      <button onclick={saveArticle}>{buttonLabel}</button>
+    </div>
+
+    <!-- Article List -->
+    <ul class="article-list">
+      <template for:each={articles} for:item="article">
+        <li key={article.id}>
+          <h3>{article.title}</h3>
+          <p>{article.content}</p>
+          <button onclick={editArticle} data-id={article.id}>Edit</button>
+          <button onclick={deleteArticle} data-id={article.id}>Delete</button>
+        </li>
+      </template>
+    </ul>
+  </div>
+</template>

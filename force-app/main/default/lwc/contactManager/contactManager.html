@@ -1,0 +1,65 @@
+<template>
+    <lightning-card title="Contact Manager">
+        <!-- Search and Add Contact Section -->
+        <div class="slds-p-around_medium">
+            <!-- Search Input -->
+            <lightning-input 
+                label="Search Contacts" 
+                value={searchKey} 
+                onchange={handleSearchChange}>
+            </lightning-input>
+
+            <!-- Add Contact Button -->
+            <lightning-button 
+                variant="brand" 
+                label="Add Contact" 
+                onclick={handleAddContact}>
+            </lightning-button>
+        </div>
+
+        <!-- Contact List -->
+        <template if:true={contacts}>
+            <template for:each={contacts} for:item="contact">
+                <lightning-record-edit-form 
+                    key={contact.Id} 
+                    object-api-name="Contact" 
+                    record-id={contact.Id}>
+                    
+                    <!-- Contact Fields -->
+                    <lightning-input-field field-name="FirstName"></lightning-input-field>
+                    <lightning-input-field field-name="LastName"></lightning-input-field>
+                    
+                    <!-- Delete Button with contactId as data attribute -->
+                    <lightning-button 
+                        variant="destructive" 
+                        label="Delete" 
+                        data-contact-id={contact.Id} 
+                        onclick={handleDeleteContact}>
+                    </lightning-button>
+                </lightning-record-edit-form>
+            </template>
+        </template>
+
+        <!-- No Results Fallback -->
+        <template if:true={noResults}>
+            <div class="slds-text-align_center slds-m-top_medium">
+                <p>No contacts found. Try a different search.</p>
+            </div>
+        </template>
+
+        <!-- Pagination Controls -->
+        <div class="slds-p-top_medium slds-text-align_center">
+            <lightning-button 
+                label="Previous" 
+                onclick={handlePreviousPage} 
+                disabled={isFirstPage}>
+            </lightning-button>
+
+            <lightning-button 
+                label="Next" 
+                onclick={handleNextPage} 
+                disabled={isLastPage}>
+            </lightning-button>
+        </div>
+    </lightning-card>
+</template>

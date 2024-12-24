@@ -1,0 +1,25 @@
+<template>
+    <lightning-card title="Error Dashboard" icon-name="utility:error">
+        <div class="slds-p-horizontal_medium slds-p-vertical_small">
+            <!-- Table displaying error data -->
+            <template if:true={errorData}>
+                <lightning-datatable
+                    data={errorData}
+                    columns={columns}
+                    key-field="errorMessage"
+                    hide-checkbox-column
+                ></lightning-datatable>
+            </template>
+            
+            <!-- Error message if data fetch fails -->
+            <template if:true={errorMessage}>
+                <p class="slds-text-color_error">{errorMessage}</p>
+            </template>
+
+            <!-- Loading message when data is being fetched -->
+            <template if:false={errorData} >
+                <p class="slds-text-align_center">Loading...</p>
+            </template>
+        </div>
+    </lightning-card>
+</template>

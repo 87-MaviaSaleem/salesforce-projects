@@ -1,0 +1,85 @@
+<!-- 
+  @description       : This component is responsible for displaying user data with pagination, 
+                        a loading spinner, and buttons for syncing with an external system and exporting to CSV.
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 12-04-2024
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+-->
+<template>
+    <!-- The lightning card provides the overall container for the component -->
+    <lightning-card title="Sync App">
+        
+        <!-- If the loading state is true, display a spinner to indicate data is being processed -->
+        <template if:true={loading}>
+            <lightning-spinner alternative-text="Loading" size="large"></lightning-spinner>
+        </template>
+
+        <!-- Only render the following content if there is data to display (i.e., paginatedData is not empty) -->
+        <template if:true={paginatedData.length}>
+            <div class="slds-p-horizontal_medium"> <!-- Provides horizontal padding around the content -->
+                
+                <!-- Display the user data in an unordered list (ul) -->
+                <ul>
+                    <!-- Loop over the paginatedData array to create list items (li) for each user -->
+                    <template for:each={paginatedData} for:item="user">
+                        <!-- Each list item gets a unique key based on the user's ID -->
+                        <li key={user.id}>{user.Name}</li> <!-- Display the user's name -->
+                    </template>
+                </ul>
+
+                <!-- Pagination controls -->
+                <div class="pagination" style="margin-top: 10px; margin-bottom: 10px;">
+                    <!-- Previous button, disabled if we are on the first page -->
+                    <lightning-button
+                        variant="neutral"
+                        label="Previous"
+                        onclick={handlePreviousPage}
+                        disabled={isPreviousDisabled}> <!-- Disables the button if it's not possible to go back -->
+                    </lightning-button>
+
+                    <!-- Page indicator: Displays the current page and total pages -->
+                    <span class="slds-p-horizontal_small">
+                        Page {currentPage} of {totalPages}
+                    </span>
+
+                    <!-- Next button, disabled if we are on the last page -->
+                    <lightning-button
+                        variant="neutral"
+                        label="Next"
+                        onclick={handleNextPage} 
+                        disabled={isNextDisabled}> <!-- Disables the button if it's not possible to go forward -->
+                    </lightning-button>
+                </div>
+                
+                <!-- Container for the Sync and Export buttons -->
+                <div >
+                    <!-- Button to sync with an external system -->
+                    <lightning-button
+                         style="margin-right: 10px;"
+                        variant="brand"
+                        label="Sync with External System"
+                        onclick={handleSyncData} 
+                        disabled={loading}> <!-- Disables the button if the component is in the loading state -->
+                    </lightning-button>
+
+                    <!-- Button to export data to CSV -->
+                    <lightning-button
+                        class="button-spacing" 
+                        variant="neutral"
+                        label="Export to CSV"
+                        onclick={handleExportCSV} 
+                        disabled={loading}> <!-- Disables the button if the component is in the loading state -->
+                    </lightning-button>
+                </div>
+            </div>
+        </template>
+
+        <!-- If there is an error message, display it in an error text block -->
+        <template if:true={errorMessage}>
+            <div class="slds-text-color_error">
+                <p style="margin-left: 10px; margin-top:10px;">{errorMessage}</p> <!-- Display the error message -->
+            </div>
+        </template>
+    </lightning-card>
+</template>

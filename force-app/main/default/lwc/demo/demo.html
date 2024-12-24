@@ -1,0 +1,22 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 11-22-2024
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+-->
+<template>
+    <lightning-card title="Sortable Accounts" icon-name="standard:sort">
+        <!-- Data Table -->
+        <lightning-datatable
+            key-field="Id"
+            columns={columns}
+            data={accounts}
+            hide-checkbox-column
+            default-sort-direction="asc"
+            sorted-direction={sortOrder}
+            sorted-by={sortedBy}
+            onsort={handleSort}>
+        </lightning-datatable>
+    </lightning-card>
+</template>

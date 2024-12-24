@@ -1,0 +1,39 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 11-26-2024
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+-->
+<template>
+    <lightning-card title="Contact Form">
+        <div class="slds-p-around_medium">
+            <label for="name" class="slds-form-element__label">Name:</label>
+            <input 
+                type="text" 
+                id="name" 
+                name="name" 
+                class="slds-input" 
+                value={name} 
+                onchange={handleInputChange} 
+            />
+            
+            <label for="email" class="slds-form-element__label slds-m-top_medium">Email:</label>
+            <input 
+                type="email" 
+                id="email" 
+                name="email" 
+                class="slds-input" 
+                value={email} 
+                onchange={handleInputChange} 
+            />
+            
+            <lightning-button 
+                label="Submit" 
+                variant="brand" 
+                class="slds-m-top_medium" 
+                onclick={handleSubmit}>
+            </lightning-button>
+        </div>
+    </lightning-card>
+</template>

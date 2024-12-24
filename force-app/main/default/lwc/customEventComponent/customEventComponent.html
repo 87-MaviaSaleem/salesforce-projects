@@ -1,0 +1,59 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 12-06-2024
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+-->
+<template>
+    <!-- Container for the entire component -->
+    <div class="component-container">
+        <!-- Heading for the component -->
+        <h1>Custom Event Component with Priority Queue</h1>
+
+        <!-- Display the current message being processed -->
+        <p>Current Message Displayed: {currentMessage}</p>
+
+        <!-- Display the number of messages currently in the queue -->
+        <p>Messages in Queue: {messageQueue.length}</p>
+
+        <!-- Input section for adding a message to the queue -->
+        <div class="input-section">
+            <!-- Input field for the user to type the message to be queued -->
+            <lightning-input
+                label="Enter Message to Queue"
+                value={messageToSend}
+                onchange={handleInputChange}>
+            </lightning-input>
+
+            <!-- Dropdown for selecting the priority of the message -->
+            <lightning-combobox
+                label="Select Priority"
+                value={priorityLevel}
+                options={priorityOptions}
+                onchange={handlePriorityChange}>
+            </lightning-combobox>
+
+            <!-- Button to add the message to the queue -->
+            <lightning-button
+                label="Add to Queue"
+                onclick={addToQueue}
+                class="queue-button">
+            </lightning-button>
+        </div>
+
+        <!-- Button to process the next message in the queue -->
+        <lightning-button
+            label="Process Next Message"
+            onclick={processNextMessage}
+            class="process-button">
+        </lightning-button>
+
+        <!-- Button to remove the last message from the queue -->
+        <lightning-button
+            label="Remove Last Message"
+            onclick={removeLastMessage}
+            class="remove-button">
+        </lightning-button>
+    </div>
+</template>

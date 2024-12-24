@@ -1,0 +1,44 @@
+/* Tooltip hidden by default */
+.tooltip-hidden {
+    display: none;
+}
+
+/* Tooltip visible when hovering */
+.tooltip-visible {
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 5px;
+    border-radius: 3px;
+    font-size: 14px;
+    display: block;
+    pointer-events: none;  /* Tooltip doesn't block mouse events */
+    transition: opacity 0.2s ease;
+}
+
+/* Button hover and active states */
+button {
+    background-color: #0070d2;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+button:hover {
+    background-color: #005bb5;
+}
+
+button:active {
+    transform: scale(0.98);
+}
+
+/* Message display */
+p {
+    font-size: 16px;
+    color: #333;
+    margin-top: 15px;
+    font-weight: bold;
+}

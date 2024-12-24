@@ -1,0 +1,89 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 11-28-2024
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+-->
+<template>
+    <lightning-card title="Goal Tracking" icon-name="custom:custom63">
+        
+        <!-- Goal Input Form Section -->
+        <div class="slds-p-around_medium">
+            <lightning-input 
+                label="Target Duration (minutes)" 
+                value={goalTarget} 
+                onchange={handleInputChange} 
+                data-id="goalTarget" 
+                type="number" 
+                step="1" 
+                min="0">
+            </lightning-input>
+
+            <lightning-input 
+                label="Target Calories" 
+                value={goalCalories} 
+                onchange={handleInputChange} 
+                data-id="goalCalories" 
+                type="number" 
+                step="1" 
+                min="0">
+            </lightning-input>
+
+            <lightning-input 
+                label="Target Distance (km)" 
+                value={goalDistance} 
+                onchange={handleInputChange} 
+                data-id="goalDistance" 
+                type="number" 
+                step="0.1" 
+                min="0">
+            </lightning-input>
+        </div>
+
+        <!-- Save Goal Button -->
+        <div class="slds-p-around_medium">
+            <lightning-button 
+                variant="brand" 
+                label="Save Goal" 
+                onclick={handleSaveGoal}>
+            </lightning-button>
+        </div>
+
+        <!-- Goal Summary Section -->
+        <template if:true={goalTarget}>
+            <div class="slds-p-around_medium">
+                <p><strong>Goal Target: </strong>{goalTarget} minutes</p>
+                <p><strong>Progress: </strong>{progress} minutes</p>
+            </div>
+        </template>
+
+        <!-- Progress Bar Section -->
+        <template if:true={goalTarget}>
+            <div class="slds-p-around_medium">
+                <lightning-progress-bar 
+                    value={progressPercentage} 
+                    variant="base" 
+                    label="Goal Progress">
+                </lightning-progress-bar>
+            </div>
+        </template>
+
+        <!-- Edit and Reset Buttons -->
+        <div class="slds-p-around_medium">
+            <lightning-button 
+                variant="neutral" 
+                label="Edit Goal" 
+                onclick={handleEditGoal} 
+                class="slds-m-right_small">
+            </lightning-button>
+            
+            <lightning-button 
+                variant="destructive" 
+                label="Reset Goal" 
+                onclick={handleResetGoal}>
+            </lightning-button>
+        </div>
+
+    </lightning-card>
+</template>

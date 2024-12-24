@@ -1,0 +1,128 @@
+/* General styling for the card and form elements */
+.slds-card {
+    background-color: #f4f6f9;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.slds-p-around_medium {
+    padding: 20px;
+}
+
+/* Profile section */
+.profile-image {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-top: 20px;
+    border: 2px solid #ddd;
+    object-fit: cover;
+}
+
+/* Card header */
+.slds-card__header {
+    background-color: #0070d2; /* Salesforce blue */
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding: 15px;
+    border-radius: 10px 10px 0 0;
+}
+
+/* Label styling for comboboxes and checkboxes */
+.slds-form-element__label {
+    font-weight: 600;
+    font-size: 1rem;
+    color: #333;
+    margin-bottom: 8px;
+}
+
+/* Combobox and Checkbox styling */
+.lightning-combobox,
+.lightning-checkbox-group {
+    width: 100%;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 1rem;
+    margin-bottom: 20px;
+    transition: all 0.3s ease-in-out;
+}
+
+.lightning-combobox:hover,
+.lightning-checkbox-group:hover {
+    border-color: #0070d2;
+}
+
+/* Input field styling for profile picture */
+.lightning-input[type="file"] {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin-top: 10px;
+    transition: all 0.3s ease-in-out;
+}
+
+.lightning-input[type="file"]:hover {
+    border-color: #0070d2;
+}
+
+/* Style for the combobox dropdown */
+.slds-combobox__input {
+    padding: 10px;
+    font-size: 1rem;
+    border-radius: 5px;
+}
+
+/* Active profile combobox */
+.slds-combobox__input:focus {
+    border-color: #0070d2;
+    outline: none;
+}
+
+/* Hover effect for card */
+.slds-card:hover {
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Form layout styling */
+.slds-form-element {
+    margin-bottom: 20px;
+}
+
+/* Profile picture upload section */
+.slds-input__icon {
+    margin-left: -25px;
+}
+
+.slds-card__body {
+    padding: 20px;
+    background-color: #f9fafc;
+}
+
+/* Spinner (for loading states) */
+.slds-spinner {
+    margin-top: 20px;
+    text-align: center;
+}
+
+/* Profile Selection Dropdown */
+.slds-combobox__input {
+    font-size: 1rem;
+    padding: 12px;
+    border-radius: 6px;
+    border: 1px solid #e1e1e1;
+    background-color: #fff;
+}
+
+.slds-combobox__input:focus {
+    border-color: #0070d2;
+}
+
+/* Clean form margins */
+.slds-card__body .slds-p-horizontal_medium {
+    padding-left: 20px;
+    padding-right: 20px;
+}

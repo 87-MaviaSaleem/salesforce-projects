@@ -1,0 +1,37 @@
+<template>
+		<lightning-card slds="slds-m-around_small">
+				<div class="slds-m-around_small">
+						<!-- Search Input and Category Filter -->
+						<lightning-input label="Search for products" value={searchTerm} onchange={handleSearchChange}></lightning-input>
+						<lightning-combobox label="Category" value={selectedCategory} options={categoryOptions} onchange={handleCategoryChange}></lightning-combobox>
+						<lightning-button class="slds-m-top_small" label="Search" onclick={handleSearchClick}></lightning-button>
+
+						<!-- Product Results -->
+						<template if:true={products}>
+								<lightning-card title="Product Results">
+										<ul>
+												<template for:each={products} for:item="product">
+														<li key={product.Id}>
+																<a href="javascript:void(0)" onclick={viewProductDetail}>{product.Name}</a>
+														</li>
+												</template>
+										</ul>
+								</lightning-card>
+						</template>
+
+						<!-- No Results Message -->
+						<template if:true={noResults}>
+								<p>No products found for the search criteria.</p>
+						</template>
+
+						<!-- Error Message -->
+						<template if:true={error}>
+								<p>Error loading products: {error}</p>
+						</template>
+
+						<!-- Pagination Controls -->
+						<lightning-button label="Previous" onclick={handlePreviousPage} disabled={isFirstPage}></lightning-button>
+						<lightning-button class="slds-m-left_small" label="Next" onclick={handleNextPage} disabled={isLastPage}></lightning-button>
+				</div>
+		</lightning-card>
+</template>

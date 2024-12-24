@@ -1,0 +1,86 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 11-25-2024
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+-->
+<template>
+    <!-- Lightning Card acts as a container for the Lead Tracker component -->
+    <lightning-card title="Lead Tracker" icon-name="standard:lead">
+        <div class="slds-m-around_medium">
+
+            <!-- Spinner for data loading -->
+            <template if:true={isLoading}>
+                <lightning-spinner size="large" alternative-text="Loading Leads..."></lightning-spinner>
+            </template>
+
+            <!-- Dropdown (lightning-combobox) to filter leads by status -->
+            <lightning-combobox
+            name="progress"
+            label="Status"
+            value={value}
+            placeholder="Select Progress"
+            options={options}
+            onchange={handleStatusChange} ></lightning-combobox>
+
+            <!-- Button to manually refresh the leads data -->
+            <lightning-button 
+                label="Refresh" 
+                onclick={handleRefresh} 
+                class="slds-m-top_small">
+            </lightning-button>
+
+            <!-- Displays the last refresh time, if available -->
+            <template if:true={lastRefreshTime}>
+                <p class="slds-text-body_small">
+                    Last refreshed at: {lastRefreshTime}
+                </p>
+            </template>
+
+            <!-- Error handling: displays an error message if fetching leads fails -->
+            <template if:true={error}>
+                <p class="slds-text-color_error slds-m-top_medium">
+                    Error fetching leads: {error.message}
+                </p>
+            </template>
+
+            <!-- Loop to display the list of leads -->
+            <template if:true={leads}>
+                <ul class="slds-m-top_medium">
+                    <template for:each={leads} for:item="lead">
+                        <li key={lead.Id}>
+                            <b>{lead.Name}</b> - {lead.Company} ({lead.Email}) - {lead.Status}
+                        </li>
+                    </template>
+                </ul>
+            </template>
+
+            <!-- Pagination controls, displayed only if leads are available -->
+            <template if:true={leads}>
+                <div class="slds-grid slds-m-top_medium slds-align_absolute-center">
+                    <!-- Button to navigate to the previous page -->
+                    <lightning-button
+                        label="Previous"
+                        onclick={handlePrevPage}
+                        disabled={disablePrev}
+                        class="slds-m-horizontal_small">
+                    </lightning-button>
+
+                    <!-- Current page information -->
+                    <p class="slds-m-horizontal_small">
+                        Page {currentPage} of {totalPages}
+                    </p>
+
+                    <!-- Button to navigate to the next page -->
+                    <lightning-button
+                        label="Next"
+                        onclick={handleNextPage}
+                        disabled={disableNext}
+                        class="slds-m-horizontal_small">
+                    </lightning-button>
+                </div>
+            </template>
+        </div>
+    </lightning-card>
+</template>
