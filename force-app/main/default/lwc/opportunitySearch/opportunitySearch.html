@@ -1,0 +1,20 @@
+<template>
+    <lightning-card title="Opportunity Search" icon-name="standard:opportunity">
+        <div class="slds-p-around_medium">
+            <lightning-input 
+                type="text" 
+                label="Search Opportunities"
+                placeholder="Enter opportunity name..."
+                onchange={handleSearch}>
+            </lightning-input>
+        </div>
+        <div class="slds-p-around_medium">
+            <lightning-datatable 
+                key-field="Id"
+                data={filteredResults}
+                columns={columns}
+                hide-checkbox-column>
+            </lightning-datatable>
+        </div>
+    </lightning-card>
+</template>
