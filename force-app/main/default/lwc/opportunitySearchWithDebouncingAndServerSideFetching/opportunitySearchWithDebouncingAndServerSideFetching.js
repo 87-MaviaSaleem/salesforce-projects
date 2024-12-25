@@ -1,10 +1,15 @@
 import { LightningElement, track } from 'lwc';
 import searchOpportunities from '@salesforce/apex/OptimizedOppSearchController.searchOpportunities';
 
-export default class OpportunitySearchWithDebouncingAndServerSideFetching extends LightningElement {
-    @track filteredResults = [];
+export default class OpportunitySearchWithDebouncingAndPagination extends LightningElement {
+    @track searchKey = ''; // Default to blank to show all opportunities
+    @track filteredResults = []; 
+    @track currentPage = 1;
+    @track pageSize = 10; 
+    @track totalRecords = 0; 
+    @track isLoading = false; 
 
-    // Opportunity Columns to be displayed in the Data Table
+    // Table columns
     @track columns = [
         { label: 'Opportunity Name', fieldName: 'Name', type: 'text' },
         { label: 'Stage', fieldName: 'StageName', type: 'text' },
@@ -12,47 +17,80 @@ export default class OpportunitySearchWithDebouncingAndServerSideFetching extend
         { label: 'Close Date', fieldName: 'CloseDate', type: 'date' }
     ];
 
-    // Timer for Debouncing
     debounceTimer; 
-
-    // Caching to avoid redundant server calls
     searchCache = {}; 
 
-    // Optimized Search Logic
+    // To disable the "Previous" button 
+    get isPreviousDisabled() {
+        return this.currentPage === 1;
+    }
+
+    // To disable the "Next" button 
+    get isNextDisabled() {
+        return this.currentPage * this.pageSize >= this.totalRecords;
+    }
+
+    // To get total pages 
+    get totalPages() {
+        return Math.ceil(this.totalRecords / this.pageSize);
+    }
+
+    get isFilterRecordAvailable() {
+        return this.filteredResults.length > 0;
+    }
+
+    // Fetch opportunities when the component loads
+    connectedCallback() {
+        this.fetchOpportunities(); // Fetch all opportunities initially
+    }
+
+    // Handle search input with debouncing
     handleSearch(event) {
         const searchKey = event.target.value.trim().toLowerCase();
-
-        // Debounce implementation to delay the processing
+        this.searchKey = searchKey; 
         clearTimeout(this.debounceTimer);
+
+        // Debounce to avoid frequent server calls
         this.debounceTimer = setTimeout(() => {
-            if (this.searchCache[searchKey]) {
-
-                // If cached, use the cached results
-                this.filteredResults = this.searchCache[searchKey];
-
-            } else {
-
-                // Otherwise, fetch results from the server
-                this.fetchOpportunities(searchKey);
-
-            }
+            this.currentPage = 1; 
+            this.fetchOpportunities(); 
         }, 300);
     }
 
-    fetchOpportunities(query) {
-        searchOpportunities({ searchKey: query })
-            .then(results => {
+    // Fetch opportunities with pagination
+    fetchOpportunities() {
+        this.isLoading = true;
 
-                // Cache the results
-                this.searchCache[query] = results; 
-                this.filteredResults = results;
+        searchOpportunities({ 
+            searchKey: this.searchKey, 
+            pageNumber: this.currentPage, 
+            pageSize: this.pageSize 
+        })
+        .then(result => {
+            this.filteredResults = result.opportunities;
+            this.totalRecords = result.total;
+            this.isLoading = false;
+        })
+        .catch(error => {
+            console.error('Error fetching opportunities:', error);
+            this.filteredResults = [];
+            this.isLoading = false;
+        });
+    }
 
-            })
-            .catch(error => {
+    // Handle "Next" page button 
+    handleNextPage() {
+        if (!this.isNextDisabled) {
+            this.currentPage++;
+            this.fetchOpportunities();
+        }
+    }
 
-                console.error('Error faced while fetching the search results:', error);
-                this.filteredResults = [];
-
-            });
+    // Handle "Previous" page button 
+    handlePreviousPage() {
+        if (!this.isPreviousDisabled) {
+            this.currentPage--;
+            this.fetchOpportunities();
+        }
     }
 }

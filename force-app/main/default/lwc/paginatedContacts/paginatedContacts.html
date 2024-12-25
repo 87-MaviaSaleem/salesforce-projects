@@ -1,18 +1,18 @@
 <template>
-    <lightning-card title="Paginated Opportunity" icon-name="standard:opportunity">
+    <lightning-card title="Paginated Contacts" icon-name="standard:contact">
 
         <!-- Loading spinner fetching data -->
         <template if:true={isLoading}>
             <lightning-spinner alternative-text="Loading..." size="medium"></lightning-spinner>
         </template>
 
-         <!-- Data table to display opportunity records -->
+         <!-- Data table to display contact records -->
          <template if:true={isFilterRecordAvailable}>
             <div class="slds-p-around_medium">
-                <lightning-datatable
+                <lightning-datatable 
                     key-field="Id"
-                    data={filteredResults}
                     columns={columns}
+                    data={contacts}
                     hide-checkbox-column
                     show-row-number-column
                     row-number-offset={offset}>
@@ -44,9 +44,9 @@
             </div>
 
         </template>
-        <!-- No Opportunities Found -->
+        <!-- No Contacts Found -->
         <template if:false={isFilterRecordAvailable}>
-            <p>No opportunities available.</p>
+            <p>No Contacts available.</p>
         </template>
         
     </lightning-card>

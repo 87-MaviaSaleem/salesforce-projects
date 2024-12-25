@@ -1,14 +1,5 @@
 <template>
-    <lightning-card title="Optimized Opportunity Search with Pagination and Inline Edit" icon-name="standard:opportunity">
-        <!-- Search Bar -->
-        <div class="slds-p-around_medium">
-            <lightning-input 
-                type="text" 
-                label="Search Opportunities"
-                placeholder="Enter opportunity name..."
-                onchange={handleSearch}>
-            </lightning-input>
-        </div>
+    <lightning-card title="Paginated Contacts with Inline Edit" icon-name="standard:contact">
 
         <!-- Loading Spinner -->
         <template if:true={isLoading}>
@@ -20,29 +11,30 @@
             <div class="slds-p-around_medium">
                 <lightning-datatable 
                     key-field="Id"
-                    data={filteredResults}
                     columns={columns}
+                    data={contacts}
                     draft-values={draftValues}
                     onsave={handleSave}
-                    hide-checkbox-column>
+                    hide-checkbox-column
+                    show-row-number-column>
                 </lightning-datatable>
             </div>
 
             <!-- Pagination Controls -->
             <div class="slds-grid slds-grid_align-center slds-gutters slds-m-top_medium">
                 <lightning-button 
-                    label="Previous" 
-                    onclick={handlePreviousPage} 
-                    disabled={isPreviousDisabled} 
+                    label="Previous"
+                    onclick={handlePreviousPage}
+                    disabled={isPreviousDisabled}
                     variant="brand">
                 </lightning-button>
                 <div class="slds-text-align_center slds-font-bold slds-p-horizontal_small">
                     Page {currentPage} of {totalPages}
                 </div>
                 <lightning-button 
-                    label="Next" 
-                    onclick={handleNextPage} 
-                    disabled={isNextDisabled} 
+                    label="Next"
+                    onclick={handleNextPage}
+                    disabled={isNextDisabled}
                     variant="brand">
                 </lightning-button>
             </div>
@@ -50,7 +42,8 @@
 
         <!-- No Records Found -->
         <template if:false={isFilterRecordAvailable}>
-            <p>No opportunities found.</p>
+            <p>No Contacts available.</p>
         </template>
+
     </lightning-card>
 </template>

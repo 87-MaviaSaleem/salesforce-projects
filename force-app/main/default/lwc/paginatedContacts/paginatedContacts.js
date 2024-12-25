@@ -1,36 +1,36 @@
 import { LightningElement, track, wire } from 'lwc';
-import getOpportunities from '@salesforce/apex/OpportunitySearchController.getOpportunities';
+import getContacts from '@salesforce/apex/PaginatedContactController.getContacts';
 import { ShowToastEvent } from 'lightning/platformShowToastEvent';
 
-export default class OpportunitySearch extends LightningElement {
+export default class PaginatedContacts extends LightningElement {
 
-    @track opportunities = [];
+    @track contacts = [];
     @track currentPage = 1;
     @track pageSize = 10;
-    @track totalOpps = 0;
+    @track totalContacts = 0;
     @track isLoading = false;
-
-    // Opportunity Columns to be displayed in the Data Table
+    
+    // Contacts Columns to be displayed in the Data Table
     @track columns = [
-        { label: 'Opportunity Name', fieldName: 'Name', type: 'text' },
-        { label: 'Stage', fieldName: 'StageName', type: 'text' },
-        { label: 'Amount', fieldName: 'Amount', type: 'currency' },
-        { label: 'Close Date', fieldName: 'CloseDate', type: 'date' }
+        { label: 'Contact Name', fieldName: 'Name', type: 'text' },
+        { label: 'Phone', fieldName: 'Phone', type: 'phone' },
+        { label: 'Email', fieldName: 'Email', type: 'email' },
+        { label: 'Department', fieldName: 'Department', type: 'text' }
     ];
 
-    // To disable the "Previous" button
+    // To disable the "Previous" button 
     get isPreviousDisabled(){
         return this.currentPage === 1;
     }
 
     // To disable the "Next" button
     get isNextDisabled(){
-        return this.currentPage * this.pageSize >= this.totalOpps;
+        return this.currentPage * this.pageSize >= this.totalContacts;
     }
 
     // To calculate total no. of pages
     get totalPages(){
-        return Math.ceil(this.totalOpps / this.pageSize);
+        return Math.ceil(this.totalContacts / this.pageSize);
     }
 
     // To calculate the offset for the current page
@@ -39,25 +39,24 @@ export default class OpportunitySearch extends LightningElement {
     }
 
     get isFilterRecordAvailable(){
-        return this.opportunities.length > 0;
+        return this.contacts.length > 0;
     }
 
     
-    @wire(getOpportunities, { pageNumber: '$currentPage', pageSize: '$pageSize' })
-    wiredOpportunities(result) {
+    @wire(getContacts, { pageNumber: '$currentPage', pageSize: '$pageSize' })
+    wiredContacts(result) {
         if (result.data) {
 
-            this.opportunities = result.data.opportunities;
-            this.filteredResults = result.data.opportunities;
-            this.totalOpps = result.data.total;
+            this.contacts = result.data.contacts;
+            this.totalContacts = result.data.total;
             this.isLoading = false;
 
             
         } else if (result.error) {
 
-            console.error('Error faced while fetching the opportunities:', error);
+            console.error('Error faced while fetching the contacts:', error);
             this.isLoading = false;
-            this.showToast('Error', 'Failed to fetch the opportunities.', 'error');
+            this.showToast('Error', 'Failed to fetch the contacts.', 'error');
 
         }
     }
@@ -65,7 +64,7 @@ export default class OpportunitySearch extends LightningElement {
 
     // Handle the "Next Page" button
     handleNextPage() {
-        if (this.currentPage * this.pageSize < this.totalOpps) {
+        if (this.currentPage * this.pageSize < this.totalContacts) {
             this.isLoading = true;
             this.currentPage++;
         }
@@ -78,7 +77,8 @@ export default class OpportunitySearch extends LightningElement {
             this.currentPage--;
         }
     }
-    
+
+
     // To show toast messages
     showToast(title, message, variant) {
         const event = new ShowToastEvent({

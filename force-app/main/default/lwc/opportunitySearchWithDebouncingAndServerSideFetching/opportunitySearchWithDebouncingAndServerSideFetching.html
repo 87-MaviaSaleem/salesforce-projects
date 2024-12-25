@@ -1,6 +1,7 @@
 <template>
-    <lightning-card title="Opportunity Search with Debouncing and Server Side Fetching" icon-name="standard:opportunity">
+    <lightning-card title="Opportunity Search with Pagination and Debouncing" icon-name="standard:opportunity">
         <div class="slds-p-around_medium">
+            <!-- Search Input -->
             <lightning-input 
                 type="text" 
                 label="Search Opportunities"
@@ -8,13 +9,48 @@
                 onchange={handleSearch}>
             </lightning-input>
         </div>
-        <div class="slds-p-around_medium">
-            <lightning-datatable 
-                key-field="Id"
-                data={filteredResults}
-                columns={columns}
-                hide-checkbox-column>
-            </lightning-datatable>
-        </div>
+
+        <!-- Loading Spinner -->
+        <template if:true={isLoading}>
+            <lightning-spinner alternative-text="Loading..." size="medium"></lightning-spinner>
+        </template>
+
+        <!-- Data Table -->
+        <template if:true={isFilterRecordAvailable}>
+            <div class="slds-p-around_medium">
+                <lightning-datatable 
+                    key-field="Id"
+                    data={filteredResults}
+                    columns={columns}
+                    hide-checkbox-column
+                    show-row-number-column
+                    row-number-offset={offset}>
+                </lightning-datatable>
+            </div>
+
+            <!-- Pagination Controls -->
+            <div class="slds-grid slds-grid_align-center slds-gutters slds-m-top_medium">
+                <lightning-button 
+                    label="Previous" 
+                    onclick={handlePreviousPage} 
+                    disabled={isPreviousDisabled} 
+                    variant="brand">
+                </lightning-button>
+                <div class="slds-text-align_center slds-font-bold slds-p-horizontal_small">
+                    Page {currentPage} of {totalPages}
+                </div>
+                <lightning-button 
+                    label="Next" 
+                    onclick={handleNextPage} 
+                    disabled={isNextDisabled} 
+                    variant="brand">
+                </lightning-button>
+            </div>
+        </template>
+
+        <!-- No Records Found -->
+        <template if:false={isFilterRecordAvailable}>
+            <p>No opportunities available.</p>
+        </template>
     </lightning-card>
 </template>
